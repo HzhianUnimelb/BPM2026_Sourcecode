@@ -1,0 +1,578 @@
+\documentclass{article}
+\setlength{\paperheight}{232.8mm}
+\setlength{\paperwidth}{151.5mm}
+\setlength\voffset{-26mm}
+\setlength\hoffset{-32mm}
+
+\bibliographystyle{plain}
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat=1.18}
+\usepackage{longtable}
+\usepackage{hyperref}
+\usepackage{datetime}
+\usepackage[capitalise,nameinlink]{cleveref}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{ragged2e}
+\begin{document}
+\date{Compiled at {\ampmtime} on {\today}}
+\title{Entropia: Process Discovery Experiment Report}
+%\author{}
+\maketitle
+\section{Introduction}
+This report summarizes the setup and results of a process discovery experiment conducted using the \textsl{Entropia}
+tool.
+The following section outlines the discovery techniques used and their configurations in the experiment.
+\Cref{sec:quality} specifies the evaluation criteria used to assess the quality of the discovered models and to compare the performance of the discovery techniques.
+Finally, \cref{sec:results} presents the experimental results.
+\section{Discovery}
+The command line used to execute the experiment is listed below:
+\begin{justify}
+ -mspd -el "BPI2012.xes"  m1 -p 10 -mxItr 20 -t 5000 -mms 500 -pfs 200 -ebrm U - optm DFFA 
+\end{justify}\noindent
+\Cref{tbl:experiment} summarizes the key characteristics of the experimental setup used for performance comparison.
+\begin{table}[h!] 
+\centering 
+\caption{Characteristics of the experiment} 
+\label{tbl:experiment} 
+\setlength{\tabcolsep}{6pt} % Adjust column spacing 
+\fontsize{9}{11}\selectfont 
+\begin{tabular}{@{}lr@{}} 
+\toprule 
+\textbf{Parameter} & \textbf{Value} \\ 
+\midrule
+Population size &10\\ 
+Iterations &20\\ 
+Time limit (s) &5000\\ 
+Pareto front size &200\\ 
+Maximum model size &500\\ 
+DCI grid siz &4\\ 
+Optimized models &DFFA\\ 
+Entropic relevance background model &U\\ 
+Event log & \texttt{BPI2012.xes} \\ 
+\bottomrule 
+\end{tabular}
+\end{table} 
+\noindent 
+
+These discovery techniques are used in the experiment:
+\begin{itemize}
+\item DE ~\cite{DE};
+\end{itemize}
+\section{Quality}
+\label{sec:quality}
+The quality of the discovered models is assessed using two criteria: \emph{entropic relevance}, which captures stochastic precision and recall~\cite{AlkhammashPMG22}, and model \emph{size}, defined as the number of nodes and edges, which reflects model simplicity.
+
+The performance of the discovery algorithms is evaluated using two aggregate measures: \emph{dominance count} and the \emph{Diversity Comparison Indicator} (DCI)~\cite{LiYL14}.
+Dominance count quantifies how many models discovered by a given algorithm dominate those from other algorithms in the global Pareto front.DCI measures the diversity of the discovered models by analyzing their distribution in the objective space.The details are provided in \cite{zhian2025}; 
+\section{Results}
+\label{sec:results}
+\Cref{fig:quality} presents the dominant discovered models with respect to entropic relevance and model size, where lower values are preferred for both criteria.
+Specifically, \cref{fig:quality:dffa}, \cref{fig:quality:sdag}, and \cref{fig:quality:dfg} show the discovered deterministic frequency finite automata (DFFAs), stochastic deterministic finite automata (SDAGs), and directly-follows graphs (DFGs), respectively. The SDAG models are directly optimized, while the DFFA and DFG models are derived through translations of the optimized SDAGs.
+\Cref{tbl:models} in Appendix~\ref{sec:model:charaxteristics} lists the characteristics of all the discovered models. 
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[b]{0.32\textwidth}
+\centering
+\begin{tikzpicture}
+\begin{axis}[ 
+width=45mm, height=45mm,
+xlabel={Entropic relevance}, 
+ylabel={Size}, 
+title={}, 
+grid=both, 
+ymin=0, ymax=437.0875, 
+xmin=78.5996496919315, xmax=95.04107346864654,
+tick label style={font=\footnotesize}, 
+ylabel style={yshift=-5pt}, 
+title style={yshift=-5pt} 
+]
+\addplot [scatter, only marks, point meta=explicit symbolic, scatter/classes={
+DE={mark=*,red}
+}]
+table [meta=label] {
+ x           y     label 
+ 
+94.04614119406513  7.0  DE
+85.9138702500326  85.0  DE
+84.79797486737924  134.0  DE
+84.68379398474325  137.0  DE
+83.60887572341376  195.0  DE
+82.36416100232621  251.0  DE
+82.15210622794272  273.0  DE
+80.83263991403187  336.0  DE
+79.59458196651292  437.0  DE
+86.84186822862371  61.0  DE
+82.7967643573186  231.0  DE
+79.84993356659169  433.0  DE
+88.16688273285641  41.0  DE
+86.27450241586895  75.0  DE
+84.49763881729763  144.0  DE
+84.20752714304234  185.0  DE
+83.07460021500704  205.0  DE
+83.20595718384214  204.0  DE
+82.53640134376664  245.0  DE
+81.93996656751006  293.0  DE
+80.7549667575125  361.0  DE
+86.49809402365356  68.0  DE
+81.3018154463042  314.0  DE
+87.86712300030857  44.0  DE
+88.52853105451597  32.0  DE
+87.36295005953637  51.0  DE
+85.62698489106934  92.0  DE
+84.0584011573968  188.0  DE
+82.96894612085104  230.0  DE
+81.76289470932052  301.0  DE
+85.47236069137331  95.0  DE
+89.9564983063098  14.0  DE
+85.17211453396557  105.0  DE
+89.23025664499735  21.0  DE
+83.37170964205283  203.0  DE
+81.1205264608194  320.0  DE
+86.08918186010969  82.0  DE
+81.1983885470205  317.0  DE
+82.45526199294673  248.0  DE
+85.3103415367107  102.0  DE
+82.61883437437147  240.0  DE
+81.53530927129204  309.0  DE
+83.70240882003709  192.0  DE
+82.28703845515004  256.0  DE
+80.39943854695771  426.0  DE
+84.97643871740104  127.0  DE
+80.47656835743811  399.0  DE
+83.82166553040608  189.0  DE
+80.67730805074746  384.0  DE
+82.117591810209  276.0  DE
+79.71610491013297  434.0  DE
+87.09322434653043  58.0  DE
+80.90242996477727  325.0  DE
+80.60754780300209  389.0  DE
+85.09499912375584  116.0  DE
+80.56334463408636  396.0  DE
+};
+\end{axis}
+\end{tikzpicture}
+\caption{DFFA models}
+\label{fig:quality:dffa}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.32\textwidth}
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+width=45mm, height=45mm,
+xlabel={Entropic relevance},
+ylabel={Size},
+title={},
+grid=both,
+ymin=0, ymax=1.0125, 
+xmin=78.59290441969532, xmax=95.04098808545368,
+tick label style={font=\footnotesize},
+ylabel style={yshift=-5pt},
+title style={yshift=-5pt},
+legend entries={DE, DFvM},
+legend style={at={(0.5,1.25)}, anchor=north, legend columns=-1,font=\footnotesize}
+]
+\addplot [scatter, only marks, point meta=explicit symbolic, scatter/classes={
+DE={mark=*,red},
+DFvM={mark=diamond*,black}
+}]
+table [meta=label] {
+ x           y     label 
+94.04614119406513  1.0  DE
+85.9125107025869  1.0  DE
+84.79427860873676  1.0  DE
+84.6796868542418  1.0  DE
+83.59604711752185  1.0  DE
+82.34875599040477  1.0  DE
+82.1358117049331  1.0  DE
+80.81631741748069  1.0  DE
+79.58775131108386  1.0  DE
+86.84134119981485  1.0  DE
+82.783310605392  1.0  DE
+79.8415503299422  1.0  DE
+88.16688273285641  1.0  DE
+86.27318693669086  1.0  DE
+84.49349442435965  1.0  DE
+84.19912009505349  1.0  DE
+83.06144356796433  1.0  DE
+83.19288044431332  1.0  DE
+82.52442417114169  1.0  DE
+81.9229108893518  1.0  DE
+80.73794890770294  1.0  DE
+86.49755612589736  1.0  DE
+81.28447228805659  1.0  DE
+87.8670255440382  1.0  DE
+88.52853105451597  1.0  DE
+87.36274903801872  1.0  DE
+85.62560319762107  1.0  DE
+84.0484877751799  1.0  DE
+82.95557005396195  1.0  DE
+81.74432755070535  1.0  DE
+85.47096042369061  1.0  DE
+89.9564983063098  1.0  DE
+85.16852520264393  1.0  DE
+89.23025664499735  1.0  DE
+83.3587164390168  1.0  DE
+81.10256632629368  1.0  DE
+86.08784414268877  1.0  DE
+81.18096515327126  1.0  DE
+82.44193754005197  1.0  DE
+85.30678881734862  1.0  DE
+82.60692278499441  1.0  DE
+81.51610491822957  1.0  DE
+83.69020328932987  1.0  DE
+82.27155316603793  1.0  DE
+80.38028780291025  1.0  DE
+84.97277756162167  1.0  DE
+80.45861738253082  1.0  DE
+83.81167008725288  1.0  DE
+80.65958809137305  1.0  DE
+82.10121192910768  1.0  DE
+79.70760604670627  1.0  DE
+87.09291547896272  1.0  DE
+80.88617729543554  1.0  DE
+80.58975129397258  1.0  DE
+85.09137362852975  1.0  DE
+80.54547112059952  1.0  DE
+};
+\end{axis}
+\end{tikzpicture}
+\caption{SDAG models}
+\label{fig:quality:sdag}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.32\textwidth}
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+width=45mm, height=45mm,
+xlabel={Entropic relevance},
+ylabel={Size},
+title={},
+grid=both,
+ymin=0, ymax=1.0125, 
+xmin=16.780986750285024, xmax=94.2585587478662,
+tick label style={font=\footnotesize},
+ylabel style={yshift=-5pt},
+title style={yshift=-5pt}
+]
+\addplot [scatter, only marks, point meta=explicit symbolic, scatter/classes={
+DE={mark=*,red},
+DFvM={mark=diamond*,black}
+}]
+table [meta=label] {
+ x           y     label 
+94.04614119406513  1.0  DE
+80.38405744582465  1.0  DE
+80.24247210018308  1.0  DE
+80.24247210018308  1.0  DE
+76.48313657224833  1.0  DE
+70.8783404315666  1.0  DE
+70.8783404315666  1.0  DE
+70.70244477916957  1.0  DE
+66.75222342494978  1.0  DE
+80.38405744582465  1.0  DE
+72.8263456989459  1.0  DE
+66.75222342494978  1.0  DE
+83.58223276662022  1.0  DE
+80.38405744582465  1.0  DE
+80.24247210018308  1.0  DE
+76.48313657224833  1.0  DE
+76.48313657224833  1.0  DE
+76.48313657224833  1.0  DE
+70.8783404315666  1.0  DE
+70.70244477916957  1.0  DE
+70.70244477916957  1.0  DE
+80.38405744582465  1.0  DE
+70.70244477916957  1.0  DE
+80.38405744582465  1.0  DE
+88.07940624396993  1.0  DE
+80.38405744582465  1.0  DE
+80.38405744582465  1.0  DE
+76.48313657224833  1.0  DE
+72.8263456989459  1.0  DE
+70.70244477916957  1.0  DE
+80.38405744582465  1.0  DE
+88.93614828743344  1.0  DE
+80.38405744582465  1.0  DE
+88.93614828743344  1.0  DE
+76.48313657224833  1.0  DE
+70.70244477916957  1.0  DE
+80.38405744582465  1.0  DE
+70.70244477916957  1.0  DE
+70.8783404315666  1.0  DE
+80.38405744582465  1.0  DE
+70.8783404315666  1.0  DE
+70.70244477916957  1.0  DE
+76.48313657224833  1.0  DE
+70.8783404315666  1.0  DE
+66.75222342494978  1.0  DE
+80.24247210018308  1.0  DE
+66.75222342494978  1.0  DE
+76.48313657224833  1.0  DE
+66.75222342494978  1.0  DE
+70.70244477916957  1.0  DE
+66.75222342494978  1.0  DE
+80.38405744582465  1.0  DE
+70.70244477916957  1.0  DE
+66.75222342494978  1.0  DE
+80.24247210018308  1.0  DE
+66.75222342494978  1.0  DE
+16.9934043040861  1.0  DFvM
+};
+\end{axis}
+\end{tikzpicture}
+\caption{DFG models}
+\label{fig:quality:dfg}
+\end{subfigure}
+\caption{Discovered models plotted by size and entropic relevance for each representation type.}
+\label{fig:quality}
+\end{figure}
+
+\noindent
+\Cref{tbl:dominance:count} and \cref{tbl:dci} summarize the analysis of the diversity of the models and the global Pareto front (dominance count), respectively.
+\begin{table}[h!]
+\centering
+\caption{Pareto dominance count comparison}
+\label{tbl:dominance:count}
+\setlength{\tabcolsep}{6pt}
+\fontsize{8}{10}\selectfont
+\begin{tabular}{lcc}
+\toprule
+Event log &DE(\%)&Total\\
+\midrule
+BPI2012.xes&100.00&8 100.00\%\\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{table}[h!]
+\centering
+\caption{DCI comparison (\%)}
+\label{tbl:dci}
+\setlength{\tabcolsep}{6pt}
+\fontsize{8}{10}\selectfont
+\begin{tabular}{lc}
+\toprule
+Event log &DE(\%)\\
+\midrule
+BPI2012.xes&50.00\\
+\bottomrule
+\end{tabular}
+\end{table}
+\Cref{tbl:execution:time} reports the execution time (in iterations per second) for each input event log and method.
+\begin{table}[h!]
+\centering
+\caption{Execution time comparison (iterations per second)}
+\label{tbl:execution:time}
+\setlength{\tabcolsep}{6pt}
+\fontsize{8}{10}\selectfont
+\begin{tabular}{lc}
+\toprule
+Event log &DE\\
+\midrule
+BPI2012.xes&0.98\\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{thebibliography}{9}
+\bibitem{zhian2025}
+Hootan Zhian, Rajkumar Buyya, and Artem Polyvyanyy: \emph{Multi-Objective Metaheuristics for Effective and Efficient Stochastic Process Discovery}. Proceedings of the 23rd International Conference on Business Process Management (BPM) Seville, Spain, August 31–September 5, 2025.\bibitem{AlkhammashPMG22}
+Hanan Alkhammash, Artem Polyvyanyy, Alistair Moffat, Luciano Garc{\'{\i}}a{-}Ba{\~{n}}uelos:\emph{Entropic Relevance: A Mechanism for Measuring Stochastic Process Models Discovered From Event Data}.Inf. Syst. 107: 101922 (2022)
+\bibitem{LiYL14}
+Miqing Li, Shengxiang Yang, Xiaohui Liu:\emph{Diversity Comparison of Pareto Front Approximations in Many-Objective Optimization}.IEEE Trans. Cybern. 44(12): 2568--2584 (2014)
+Sander J.J. Leemans, Erik Poppe, Moe T. Wynn: \emph{Directly Follows-Based Process Mining: Exploration \& a Case Study}. In: ICPM, pp. 25–32 (2019)
+\bibitem{DE}
+Rainer Martin Storn, Kenneth Price: \emph{Differential evolution - A simple and efficient adaptive scheme for global optimization over continuous spaces}. Tech. Rep. TR-95-012, International Computer Science Institute, 1947 Center Street, Berkeley (1995)
+\end{thebibliography}
+\appendix
+\section{Model Characteristics}
+\label{sec:model:charaxteristics}
+\Cref{tbl:models} summarizes the quality characteristics of discovered models produced by the selected algorithms.
+\begin{longtable}{llllrr}
+\caption{Model characteristics: size and entropic relevance}
+\setlength{\tabcolsep}{6pt}
+\fontsize{8}{10}\selectfont
+\label{tbl:models} \\ 
+\toprule
+Method & Type & Name & Visualization & Size & Entropic relevance \\ 
+\endfirsthead
+\midrule
+\toprule
+Method & Type & Name & Visualization & Size & Entropic relevance \\ 
+\midrule
+\endhead
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate1.dffa}{Candidate1} & x &7.0&94.046\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate2.dffa}{Candidate2} & x &85.0&85.914\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate3.dffa}{Candidate3} & x &134.0&84.798\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate4.dffa}{Candidate4} & x &137.0&84.684\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate5.dffa}{Candidate5} & x &195.0&83.609\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate6.dffa}{Candidate6} & x &251.0&82.364\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate7.dffa}{Candidate7} & x &273.0&82.152\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate8.dffa}{Candidate8} & x &336.0&80.833\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate9.dffa}{Candidate9} & x &437.0&79.595\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate10.dffa}{Candidate10} & x &61.0&86.842\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate11.dffa}{Candidate11} & x &231.0&82.797\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate12.dffa}{Candidate12} & x &433.0&79.850\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate13.dffa}{Candidate13} & x &41.0&88.167\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate14.dffa}{Candidate14} & x &75.0&86.275\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate15.dffa}{Candidate15} & x &144.0&84.498\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate16.dffa}{Candidate16} & x &185.0&84.208\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate17.dffa}{Candidate17} & x &205.0&83.075\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate18.dffa}{Candidate18} & x &204.0&83.206\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate19.dffa}{Candidate19} & x &245.0&82.536\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate20.dffa}{Candidate20} & x &293.0&81.940\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate21.dffa}{Candidate21} & x &361.0&80.755\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate22.dffa}{Candidate22} & x &68.0&86.498\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate23.dffa}{Candidate23} & x &314.0&81.302\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate24.dffa}{Candidate24} & x &44.0&87.867\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate25.dffa}{Candidate25} & x &32.0&88.529\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate26.dffa}{Candidate26} & x &51.0&87.363\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate27.dffa}{Candidate27} & x &92.0&85.627\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate28.dffa}{Candidate28} & x &188.0&84.058\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate29.dffa}{Candidate29} & x &230.0&82.969\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate30.dffa}{Candidate30} & x &301.0&81.763\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate31.dffa}{Candidate31} & x &95.0&85.472\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate32.dffa}{Candidate32} & x &14.0&89.956\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate33.dffa}{Candidate33} & x &105.0&85.172\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate34.dffa}{Candidate34} & x &21.0&89.230\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate35.dffa}{Candidate35} & x &203.0&83.372\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate36.dffa}{Candidate36} & x &320.0&81.121\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate37.dffa}{Candidate37} & x &82.0&86.089\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate38.dffa}{Candidate38} & x &317.0&81.198\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate39.dffa}{Candidate39} & x &248.0&82.455\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate40.dffa}{Candidate40} & x &102.0&85.310\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate41.dffa}{Candidate41} & x &240.0&82.619\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate42.dffa}{Candidate42} & x &309.0&81.535\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate43.dffa}{Candidate43} & x &192.0&83.702\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate44.dffa}{Candidate44} & x &256.0&82.287\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate45.dffa}{Candidate45} & x &426.0&80.399\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate46.dffa}{Candidate46} & x &127.0&84.976\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate47.dffa}{Candidate47} & x &399.0&80.477\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate48.dffa}{Candidate48} & x &189.0&83.822\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate49.dffa}{Candidate49} & x &384.0&80.677\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate50.dffa}{Candidate50} & x &276.0&82.118\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate51.dffa}{Candidate51} & x &434.0&79.716\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate52.dffa}{Candidate52} & x &58.0&87.093\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate53.dffa}{Candidate53} & x &325.0&80.902\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate54.dffa}{Candidate54} & x &389.0&80.608\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate55.dffa}{Candidate55} & x &116.0&85.095\\
+DE&DFFA &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFFA/DE/candidate56.dffa}{Candidate56} & x &396.0&80.563\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate1.sdag}{Candidate1} & x &1.0&94.046\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate2.sdag}{Candidate2} & x &1.0&85.913\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate3.sdag}{Candidate3} & x &1.0&84.794\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate4.sdag}{Candidate4} & x &1.0&84.680\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate5.sdag}{Candidate5} & x &1.0&83.596\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate6.sdag}{Candidate6} & x &1.0&82.349\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate7.sdag}{Candidate7} & x &1.0&82.136\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate8.sdag}{Candidate8} & x &1.0&80.816\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate9.sdag}{Candidate9} & x &1.0&79.588\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate10.sdag}{Candidate10} & x &1.0&86.841\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate11.sdag}{Candidate11} & x &1.0&82.783\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate12.sdag}{Candidate12} & x &1.0&79.842\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate13.sdag}{Candidate13} & x &1.0&88.167\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate14.sdag}{Candidate14} & x &1.0&86.273\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate15.sdag}{Candidate15} & x &1.0&84.493\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate16.sdag}{Candidate16} & x &1.0&84.199\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate17.sdag}{Candidate17} & x &1.0&83.061\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate18.sdag}{Candidate18} & x &1.0&83.193\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate19.sdag}{Candidate19} & x &1.0&82.524\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate20.sdag}{Candidate20} & x &1.0&81.923\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate21.sdag}{Candidate21} & x &1.0&80.738\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate22.sdag}{Candidate22} & x &1.0&86.498\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate23.sdag}{Candidate23} & x &1.0&81.284\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate24.sdag}{Candidate24} & x &1.0&87.867\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate25.sdag}{Candidate25} & x &1.0&88.529\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate26.sdag}{Candidate26} & x &1.0&87.363\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate27.sdag}{Candidate27} & x &1.0&85.626\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate28.sdag}{Candidate28} & x &1.0&84.048\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate29.sdag}{Candidate29} & x &1.0&82.956\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate30.sdag}{Candidate30} & x &1.0&81.744\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate31.sdag}{Candidate31} & x &1.0&85.471\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate32.sdag}{Candidate32} & x &1.0&89.956\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate33.sdag}{Candidate33} & x &1.0&85.169\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate34.sdag}{Candidate34} & x &1.0&89.230\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate35.sdag}{Candidate35} & x &1.0&83.359\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate36.sdag}{Candidate36} & x &1.0&81.103\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate37.sdag}{Candidate37} & x &1.0&86.088\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate38.sdag}{Candidate38} & x &1.0&81.181\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate39.sdag}{Candidate39} & x &1.0&82.442\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate40.sdag}{Candidate40} & x &1.0&85.307\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate41.sdag}{Candidate41} & x &1.0&82.607\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate42.sdag}{Candidate42} & x &1.0&81.516\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate43.sdag}{Candidate43} & x &1.0&83.690\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate44.sdag}{Candidate44} & x &1.0&82.272\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate45.sdag}{Candidate45} & x &1.0&80.380\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate46.sdag}{Candidate46} & x &1.0&84.973\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate47.sdag}{Candidate47} & x &1.0&80.459\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate48.sdag}{Candidate48} & x &1.0&83.812\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate49.sdag}{Candidate49} & x &1.0&80.660\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate50.sdag}{Candidate50} & x &1.0&82.101\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate51.sdag}{Candidate51} & x &1.0&79.708\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate52.sdag}{Candidate52} & x &1.0&87.093\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate53.sdag}{Candidate53} & x &1.0&80.886\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate54.sdag}{Candidate54} & x &1.0&80.590\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate55.sdag}{Candidate55} & x &1.0&85.091\\
+DE&SDAG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/SDAG/DE/candidate56.sdag}{Candidate56} & x &1.0&80.545\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate1.dfg}{Candidate1} & x &1.0&94.046\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate2.dfg}{Candidate2} & x &1.0&80.384\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate3.dfg}{Candidate3} & x &1.0&80.242\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate4.dfg}{Candidate4} & x &1.0&80.242\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate5.dfg}{Candidate5} & x &1.0&76.483\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate6.dfg}{Candidate6} & x &1.0&70.878\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate7.dfg}{Candidate7} & x &1.0&70.878\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate8.dfg}{Candidate8} & x &1.0&70.702\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate9.dfg}{Candidate9} & x &1.0&66.752\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate10.dfg}{Candidate10} & x &1.0&80.384\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate11.dfg}{Candidate11} & x &1.0&72.826\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate12.dfg}{Candidate12} & x &1.0&66.752\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate13.dfg}{Candidate13} & x &1.0&83.582\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate14.dfg}{Candidate14} & x &1.0&80.384\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate15.dfg}{Candidate15} & x &1.0&80.242\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate16.dfg}{Candidate16} & x &1.0&76.483\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate17.dfg}{Candidate17} & x &1.0&76.483\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate18.dfg}{Candidate18} & x &1.0&76.483\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate19.dfg}{Candidate19} & x &1.0&70.878\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate20.dfg}{Candidate20} & x &1.0&70.702\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate21.dfg}{Candidate21} & x &1.0&70.702\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate22.dfg}{Candidate22} & x &1.0&80.384\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate23.dfg}{Candidate23} & x &1.0&70.702\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate24.dfg}{Candidate24} & x &1.0&80.384\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate25.dfg}{Candidate25} & x &1.0&88.079\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate26.dfg}{Candidate26} & x &1.0&80.384\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate27.dfg}{Candidate27} & x &1.0&80.384\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate28.dfg}{Candidate28} & x &1.0&76.483\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate29.dfg}{Candidate29} & x &1.0&72.826\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate30.dfg}{Candidate30} & x &1.0&70.702\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate31.dfg}{Candidate31} & x &1.0&80.384\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate32.dfg}{Candidate32} & x &1.0&88.936\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate33.dfg}{Candidate33} & x &1.0&80.384\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate34.dfg}{Candidate34} & x &1.0&88.936\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate35.dfg}{Candidate35} & x &1.0&76.483\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate36.dfg}{Candidate36} & x &1.0&70.702\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate37.dfg}{Candidate37} & x &1.0&80.384\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate38.dfg}{Candidate38} & x &1.0&70.702\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate39.dfg}{Candidate39} & x &1.0&70.878\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate40.dfg}{Candidate40} & x &1.0&80.384\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate41.dfg}{Candidate41} & x &1.0&70.878\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate42.dfg}{Candidate42} & x &1.0&70.702\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate43.dfg}{Candidate43} & x &1.0&76.483\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate44.dfg}{Candidate44} & x &1.0&70.878\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate45.dfg}{Candidate45} & x &1.0&66.752\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate46.dfg}{Candidate46} & x &1.0&80.242\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate47.dfg}{Candidate47} & x &1.0&66.752\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate48.dfg}{Candidate48} & x &1.0&76.483\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate49.dfg}{Candidate49} & x &1.0&66.752\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate50.dfg}{Candidate50} & x &1.0&70.702\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate51.dfg}{Candidate51} & x &1.0&66.752\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate52.dfg}{Candidate52} & x &1.0&80.384\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate53.dfg}{Candidate53} & x &1.0&70.702\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate54.dfg}{Candidate54} & x &1.0&66.752\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate55.dfg}{Candidate55} & x &1.0&80.242\\
+DE&DFG &\href{C:/Users/hootanz/eclipse-workspace/processICPM/20251209_215703/DFG/DE/candidate56.dfg}{Candidate56} & x &1.0&66.752\\
+\bottomrule
+\end{longtable}
+\end{document}

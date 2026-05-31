@@ -1,0 +1,1911 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- This file has been generated with the OpenXES library. It conforms -->
+<!-- to the XML serialization of the XES standard for log storage and -->
+<!-- management. -->
+<!-- XES standard version: 1.0 -->
+<!-- OpenXES library version: 1.0RC7 -->
+<!-- OpenXES is available from http://www.openxes.org/ -->
+<log xes.version="1.0" xes.features="nested-attributes" openxes.version="1.0RC7">
+	<extension name="Lifecycle" prefix="lifecycle" uri="http://www.xes-standard.org/lifecycle.xesext"/>
+	<extension name="MetaData_Time" prefix="meta_time" uri="http://www.xes-standard.org/meta_time.xesext"/>
+	<extension name="MetaData_LifeCycle" prefix="meta_life" uri="http://www.xes-standard.org/meta_life.xesext"/>
+	<extension name="Organizational" prefix="org" uri="http://www.xes-standard.org/org.xesext"/>
+	<extension name="MetaData_Organization" prefix="meta_org" uri="http://www.xes-standard.org/meta_org.xesext"/>
+	<extension name="Time" prefix="time" uri="http://www.xes-standard.org/time.xesext"/>
+	<extension name="MetaData_Concept" prefix="meta_concept" uri="http://www.xes-standard.org/meta_concept.xesext"/>
+	<extension name="MetaData_3TU" prefix="meta_3TU" uri="http://www.xes-standard.org/meta_3TU.xesext"/>
+	<extension name="Concept" prefix="concept" uri="http://www.xes-standard.org/concept.xesext"/>
+	<extension name="MetaData_General" prefix="meta_general" uri="http://www.xes-standard.org/meta_general.xesext"/>
+	<classifier name="Event Name" keys="concept:name"/>
+	<classifier name="Event Name" keys="concept:name"/>
+	<classifier name="(Event Name AND Lifecycle transition)" keys="concept:name lifecycle:transition"/>
+	<classifier name="Caller Joinpoint" keys="apploc:caller:joinpoint apploc:caller:linenr apploc:joinpoint"/>
+	<classifier name="Callee Joinpoint" keys="apploc:joinpoint apploc:linenr"/>
+	<classifier name="(Caller Joinpoint AND Software Event Type)" keys="apploc:caller:joinpoint apploc:caller:linenr apploc:etype apploc:joinpoint"/>
+	<classifier name="(Callee Joinpoint AND Software Event Type)" keys="apploc:etype apploc:joinpoint apploc:linenr"/>
+	<float key="meta_org:different_groups_average" value="1.0"/>
+	<float key="meta_time:duration_max" value="0.036"/>
+	<float key="meta_org:resource_events_standard_deviation" value="2.828">
+		<float key="1" value="2.828"/>
+	</float>
+	<string key="meta_3TU:language" value="eng"/>
+	<string key="meta_3TU:log_type" value="Real-life"/>
+	<int key="meta_org:role_events_total" value="48">
+		<int key="UNKNOWN" value="48"/>
+	</int>
+	<float key="meta_life:transition_events_standard_deviation" value="2.828">
+		<float key="start" value="1.414"/>
+		<float key="complete" value="1.414"/>
+	</float>
+	<string key="meta_3TU:description" value="XES software event log obtained through instrumenting the NASA CEV class using the tool available at https://svn.win.tue.nl/repos/prom/XPort/ . This event log contains method-call level events describing a single run of an exhaustive unit test suite for the Crew Exploration Vehicle (CEV) example available and documented at http://babelfish.arc.nasa.gov/trac/jpf/wiki/projects/jpf-statechart (trac) http://babelfish.arc.nasa.gov/hg/jpf/jpf-statechart (mecurial repository) . Note that the life-cycle information in this log corresponds to method call (start) and return (complete), and captures a method-call hierarchy. We attached a slightly preprocessed variant of this event log, where the execution of each unit test method is represented as a separate trace."/>
+	<string key="meta_3TU:process_type" value="Implicitly structured"/>
+	<int key="meta_general:events_min" value="22"/>
+	<int key="meta_life:different_transitions_total" value="2"/>
+	<float key="meta_concept:different_names_average" value="10.5"/>
+	<float key="meta_org:different_roles_standard_deviation" value="0.0"/>
+	<float key="meta_org:group_events_average" value="24.0">
+		<float key="UNKNOWN" value="24.0"/>
+	</float>
+	<int key="meta_life:different_transitions_min" value="2"/>
+	<string key="meta_3TU:creation_place" value="Eindhoven University of Technology"/>
+	<int key="meta_org:group_events_min" value="22">
+		<int key="UNKNOWN" value="22"/>
+	</int>
+	<int key="meta_org:different_groups_min" value="1"/>
+	<int key="meta_general:events_max" value="26"/>
+	<int key="meta_general:traces_total" value="2"/>
+	<int key="meta_org:resource_events_total" value="48">
+		<int key="1" value="48"/>
+	</int>
+	<float key="meta_org:role_events_average" value="24.0">
+		<float key="UNKNOWN" value="24.0"/>
+	</float>
+	<float key="meta_org:role_events_standard_deviation" value="2.828">
+		<float key="UNKNOWN" value="2.828"/>
+	</float>
+	<int key="meta_concept:named_events_total" value="48">
+		<int key="cev.ErrorLog.last()" value="2"/>
+		<int key="cev.Spacecraft.readyForTliBurn()" value="2"/>
+		<int key="cev.CEV()" value="4"/>
+		<int key="cev.Failures(cev.ErrorLog)" value="4"/>
+		<int key="cev.Failures.noEARTH_SENSORfailure()" value="2"/>
+		<int key="cev.ErrorLog()" value="4"/>
+		<int key="cev.Spacecraft.doLowActiveAbort()" value="2"/>
+		<int key="cev.Spacecraft(cev.Failures,cev.ErrorLog)" value="4"/>
+		<int key="cev.Spacecraft.doLSAMrendezvous()" value="2"/>
+		<int key="cev.ErrorLog.log(java.lang.String)" value="2"/>
+		<int key="cev.Spacecraft.readyForLSAMrendezvous()" value="2"/>
+		<int key="cev.CEV.completion()" value="2"/>
+		<int key="cev.Failures.noLAS_CNTRLfailure()" value="2"/>
+		<int key="cev.CEV.lsamRendezvous()" value="2"/>
+		<int key="cev.Failures$Type(java.lang.String,int)" value="8"/>
+		<int key="cev.CEV.tliBurn()" value="2"/>
+		<int key="cev.Failures$Type.values()" value="2"/>
+	</int>
+	<float key="meta_concept:different_names_standard_deviation" value="0.707"/>
+	<int key="meta_org:different_roles_total" value="1"/>
+	<float key="meta_life:transition_events_average" value="24.0">
+		<float key="start" value="12.0"/>
+		<float key="complete" value="12.0"/>
+	</float>
+	<string key="meta_3TU:source_institute_type" value="University"/>
+	<string key="meta_3TU:creation_person" value="Maikel Leemans"/>
+	<string key="concept:name" value="nasa-cev-1-10-splitted"/>
+	<float key="meta_time:duration_standard_deviation" value="0.017"/>
+	<float key="meta_org:group_events_standard_deviation" value="2.828">
+		<float key="UNKNOWN" value="2.828"/>
+	</float>
+	<float key="meta_org:different_groups_standard_deviation" value="0.0"/>
+	<int key="meta_concept:named_events_max" value="26">
+		<int key="cev.ErrorLog.last()" value="2"/>
+		<int key="cev.Spacecraft.readyForTliBurn()" value="2"/>
+		<int key="cev.CEV()" value="2"/>
+		<int key="cev.Failures(cev.ErrorLog)" value="2"/>
+		<int key="cev.Failures.noEARTH_SENSORfailure()" value="2"/>
+		<int key="cev.ErrorLog()" value="2"/>
+		<int key="cev.Spacecraft.doLowActiveAbort()" value="2"/>
+		<int key="cev.Spacecraft(cev.Failures,cev.ErrorLog)" value="2"/>
+		<int key="cev.Spacecraft.doLSAMrendezvous()" value="2"/>
+		<int key="cev.ErrorLog.log(java.lang.String)" value="2"/>
+		<int key="cev.Spacecraft.readyForLSAMrendezvous()" value="2"/>
+		<int key="cev.CEV.completion()" value="2"/>
+		<int key="cev.Failures.noLAS_CNTRLfailure()" value="2"/>
+		<int key="cev.CEV.lsamRendezvous()" value="2"/>
+		<int key="cev.Failures$Type(java.lang.String,int)" value="8"/>
+		<int key="cev.CEV.tliBurn()" value="2"/>
+		<int key="cev.Failures$Type.values()" value="2"/>
+	</int>
+	<float key="meta_org:different_resources_average" value="1.0"/>
+	<float key="meta_general:events_standard_deviation" value="2.828"/>
+	<float key="meta_org:different_roles_average" value="1.0"/>
+	<string key="meta_3TU:doi" value="doi:10.4121/uuid:60383406-ffcd-441f-aa5e-4ec763426b76"/>
+	<float key="meta_time:log_duration" value="0.05"/>
+	<float key="meta_concept:named_events_average" value="24.0">
+		<float key="cev.ErrorLog.last()" value="1.0"/>
+		<float key="cev.Spacecraft.readyForTliBurn()" value="1.0"/>
+		<float key="cev.CEV()" value="2.0"/>
+		<float key="cev.Failures(cev.ErrorLog)" value="2.0"/>
+		<float key="cev.Failures.noEARTH_SENSORfailure()" value="1.0"/>
+		<float key="cev.ErrorLog()" value="2.0"/>
+		<float key="cev.Spacecraft.doLowActiveAbort()" value="1.0"/>
+		<float key="cev.Spacecraft(cev.Failures,cev.ErrorLog)" value="2.0"/>
+		<float key="cev.Spacecraft.doLSAMrendezvous()" value="1.0"/>
+		<float key="cev.ErrorLog.log(java.lang.String)" value="1.0"/>
+		<float key="cev.Spacecraft.readyForLSAMrendezvous()" value="1.0"/>
+		<float key="cev.CEV.completion()" value="1.0"/>
+		<float key="cev.Failures.noLAS_CNTRLfailure()" value="1.0"/>
+		<float key="cev.CEV.lsamRendezvous()" value="1.0"/>
+		<float key="cev.Failures$Type(java.lang.String,int)" value="4.0"/>
+		<float key="cev.CEV.tliBurn()" value="1.0"/>
+		<float key="cev.Failures$Type.values()" value="1.0"/>
+	</float>
+	<date key="meta_3TU:creation_time" value="2017-02-10T00:00:00.000+01:00"/>
+	<float key="meta_org:different_resources_standard_deviation" value="0.0"/>
+	<date key="meta_time:log_start_time" value="2017-02-10T13:55:00.577+01:00"/>
+	<int key="meta_life:different_transitions_max" value="2"/>
+	<int key="meta_org:different_roles_min" value="1"/>
+	<int key="meta_org:different_resources_max" value="1"/>
+	<int key="meta_org:different_resources_total" value="1"/>
+	<int key="meta_org:different_resources_min" value="1"/>
+	<int key="meta_org:different_groups_total" value="1"/>
+	<int key="meta_life:transition_events_min" value="22">
+		<int key="start" value="11"/>
+		<int key="complete" value="11"/>
+	</int>
+	<int key="meta_general:events_total" value="48"/>
+	<float key="meta_time:duration_average" value="0.024"/>
+	<int key="meta_org:role_events_min" value="22">
+		<int key="UNKNOWN" value="22"/>
+	</int>
+	<int key="meta_org:role_events_max" value="26">
+		<int key="UNKNOWN" value="26"/>
+	</int>
+	<float key="meta_time:duration_total" value="0.048"/>
+	<float key="meta_org:resource_events_average" value="24.0">
+		<float key="1" value="24.0"/>
+	</float>
+	<string key="meta_3TU:rights" value="Public"/>
+	<int key="meta_org:different_roles_max" value="1"/>
+	<date key="meta_time:log_end_time" value="2017-02-10T13:55:00.627+01:00"/>
+	<float key="meta_concept:named_events_standard_deviation" value="2.828">
+		<float key="cev.ErrorLog.last()" value="1.414"/>
+		<float key="cev.Spacecraft.readyForTliBurn()" value="1.414"/>
+		<float key="cev.CEV()" value="0.0"/>
+		<float key="cev.Failures(cev.ErrorLog)" value="0.0"/>
+		<float key="cev.Failures.noEARTH_SENSORfailure()" value="1.414"/>
+		<float key="cev.ErrorLog()" value="0.0"/>
+		<float key="cev.Spacecraft.doLowActiveAbort()" value="1.414"/>
+		<float key="cev.Spacecraft(cev.Failures,cev.ErrorLog)" value="0.0"/>
+		<float key="cev.Spacecraft.doLSAMrendezvous()" value="1.414"/>
+		<float key="cev.ErrorLog.log(java.lang.String)" value="1.414"/>
+		<float key="cev.Spacecraft.readyForLSAMrendezvous()" value="1.414"/>
+		<float key="cev.CEV.completion()" value="1.414"/>
+		<float key="cev.Failures.noLAS_CNTRLfailure()" value="1.414"/>
+		<float key="cev.CEV.lsamRendezvous()" value="1.414"/>
+		<float key="cev.Failures$Type(java.lang.String,int)" value="5.657"/>
+		<float key="cev.CEV.tliBurn()" value="1.414"/>
+		<float key="cev.Failures$Type.values()" value="1.414"/>
+	</float>
+	<string key="meta_3TU:source_institute" value="Eindhoven University of Technology"/>
+	<float key="meta_life:different_transitions_standard_deviation" value="0.0"/>
+	<int key="meta_concept:different_names_min" value="10"/>
+	<float key="meta_life:different_transitions_average" value="2.0"/>
+	<int key="meta_org:different_groups_max" value="1"/>
+	<int key="meta_concept:different_names_max" value="11"/>
+	<int key="meta_org:resource_events_min" value="22">
+		<int key="1" value="22"/>
+	</int>
+	<int key="meta_concept:different_names_total" value="17"/>
+	<int key="meta_org:resource_events_max" value="26">
+		<int key="1" value="26"/>
+	</int>
+	<int key="meta_org:group_events_total" value="48">
+		<int key="UNKNOWN" value="48"/>
+	</int>
+	<string key="meta_3TU:source_model" value="http://babelfish.arc.nasa.gov/hg/jpf/jpf-statechart"/>
+	<int key="meta_life:transition_events_max" value="26">
+		<int key="start" value="13"/>
+		<int key="complete" value="13"/>
+	</int>
+	<string key="meta_3TU:source_program" value="NASA CEV"/>
+	<int key="meta_concept:named_events_min" value="22">
+		<int key="cev.ErrorLog.last()" value="0"/>
+		<int key="cev.Spacecraft.readyForTliBurn()" value="0"/>
+		<int key="cev.CEV()" value="2"/>
+		<int key="cev.Failures(cev.ErrorLog)" value="2"/>
+		<int key="cev.Failures.noEARTH_SENSORfailure()" value="0"/>
+		<int key="cev.ErrorLog()" value="2"/>
+		<int key="cev.Spacecraft.doLowActiveAbort()" value="0"/>
+		<int key="cev.Spacecraft(cev.Failures,cev.ErrorLog)" value="2"/>
+		<int key="cev.Spacecraft.doLSAMrendezvous()" value="0"/>
+		<int key="cev.ErrorLog.log(java.lang.String)" value="0"/>
+		<int key="cev.Spacecraft.readyForLSAMrendezvous()" value="0"/>
+		<int key="cev.CEV.completion()" value="0"/>
+		<int key="cev.Failures.noLAS_CNTRLfailure()" value="0"/>
+		<int key="cev.CEV.lsamRendezvous()" value="0"/>
+		<int key="cev.Failures$Type(java.lang.String,int)" value="0"/>
+		<int key="cev.CEV.tliBurn()" value="0"/>
+		<int key="cev.Failures$Type.values()" value="0"/>
+	</int>
+	<int key="meta_general:classifiers" value="7">
+		<string key="Event Name" value="concept:name">
+			<int key="meta_general:classified_events_total" value="96">
+				<int key="cev.ErrorLog.last()" value="4"/>
+				<int key="cev.Spacecraft.readyForTliBurn()" value="4"/>
+				<int key="cev.CEV()" value="8"/>
+				<int key="cev.Failures(cev.ErrorLog)" value="8"/>
+				<int key="cev.Failures.noEARTH_SENSORfailure()" value="4"/>
+				<int key="cev.ErrorLog()" value="8"/>
+				<int key="cev.Spacecraft.doLowActiveAbort()" value="4"/>
+				<int key="cev.Spacecraft(cev.Failures,cev.ErrorLog)" value="8"/>
+				<int key="cev.Spacecraft.doLSAMrendezvous()" value="4"/>
+				<int key="cev.ErrorLog.log(java.lang.String)" value="4"/>
+				<int key="cev.Spacecraft.readyForLSAMrendezvous()" value="4"/>
+				<int key="cev.CEV.completion()" value="4"/>
+				<int key="cev.Failures.noLAS_CNTRLfailure()" value="4"/>
+				<int key="cev.CEV.lsamRendezvous()" value="4"/>
+				<int key="cev.Failures$Type(java.lang.String,int)" value="16"/>
+				<int key="cev.CEV.tliBurn()" value="4"/>
+				<int key="cev.Failures$Type.values()" value="4"/>
+			</int>
+			<float key="meta_general:classified_events_average" value="48.0">
+				<float key="cev.ErrorLog.last()" value="2.0"/>
+				<float key="cev.Spacecraft.readyForTliBurn()" value="2.0"/>
+				<float key="cev.CEV()" value="4.0"/>
+				<float key="cev.Failures(cev.ErrorLog)" value="4.0"/>
+				<float key="cev.Failures.noEARTH_SENSORfailure()" value="2.0"/>
+				<float key="cev.ErrorLog()" value="4.0"/>
+				<float key="cev.Spacecraft.doLowActiveAbort()" value="2.0"/>
+				<float key="cev.Spacecraft(cev.Failures,cev.ErrorLog)" value="4.0"/>
+				<float key="cev.Spacecraft.doLSAMrendezvous()" value="2.0"/>
+				<float key="cev.ErrorLog.log(java.lang.String)" value="2.0"/>
+				<float key="cev.Spacecraft.readyForLSAMrendezvous()" value="2.0"/>
+				<float key="cev.CEV.completion()" value="2.0"/>
+				<float key="cev.Failures.noLAS_CNTRLfailure()" value="2.0"/>
+				<float key="cev.CEV.lsamRendezvous()" value="2.0"/>
+				<float key="cev.Failures$Type(java.lang.String,int)" value="8.0"/>
+				<float key="cev.CEV.tliBurn()" value="2.0"/>
+				<float key="cev.Failures$Type.values()" value="2.0"/>
+			</float>
+			<int key="meta_general:classified_events_max" value="52">
+				<int key="cev.ErrorLog.last()" value="4"/>
+				<int key="cev.Spacecraft.readyForTliBurn()" value="4"/>
+				<int key="cev.CEV()" value="4"/>
+				<int key="cev.Failures(cev.ErrorLog)" value="4"/>
+				<int key="cev.Failures.noEARTH_SENSORfailure()" value="4"/>
+				<int key="cev.ErrorLog()" value="4"/>
+				<int key="cev.Spacecraft.doLowActiveAbort()" value="4"/>
+				<int key="cev.Spacecraft(cev.Failures,cev.ErrorLog)" value="4"/>
+				<int key="cev.Spacecraft.doLSAMrendezvous()" value="4"/>
+				<int key="cev.ErrorLog.log(java.lang.String)" value="4"/>
+				<int key="cev.Spacecraft.readyForLSAMrendezvous()" value="4"/>
+				<int key="cev.CEV.completion()" value="4"/>
+				<int key="cev.Failures.noLAS_CNTRLfailure()" value="4"/>
+				<int key="cev.CEV.lsamRendezvous()" value="4"/>
+				<int key="cev.Failures$Type(java.lang.String,int)" value="16"/>
+				<int key="cev.CEV.tliBurn()" value="4"/>
+				<int key="cev.Failures$Type.values()" value="4"/>
+			</int>
+			<int key="meta_general:different_classified_max" value="11"/>
+			<float key="meta_general:different_classified_average" value="10.5"/>
+			<float key="meta_general:different_classified_standard_deviation" value="0.707"/>
+			<float key="meta_general:classified_events_standard_deviation" value="5.657">
+				<float key="cev.ErrorLog.last()" value="2.828"/>
+				<float key="cev.Spacecraft.readyForTliBurn()" value="2.828"/>
+				<float key="cev.CEV()" value="0.0"/>
+				<float key="cev.Failures(cev.ErrorLog)" value="0.0"/>
+				<float key="cev.Failures.noEARTH_SENSORfailure()" value="2.828"/>
+				<float key="cev.ErrorLog()" value="0.0"/>
+				<float key="cev.Spacecraft.doLowActiveAbort()" value="2.828"/>
+				<float key="cev.Spacecraft(cev.Failures,cev.ErrorLog)" value="0.0"/>
+				<float key="cev.Spacecraft.doLSAMrendezvous()" value="2.828"/>
+				<float key="cev.ErrorLog.log(java.lang.String)" value="2.828"/>
+				<float key="cev.Spacecraft.readyForLSAMrendezvous()" value="2.828"/>
+				<float key="cev.CEV.completion()" value="2.828"/>
+				<float key="cev.Failures.noLAS_CNTRLfailure()" value="2.828"/>
+				<float key="cev.CEV.lsamRendezvous()" value="2.828"/>
+				<float key="cev.Failures$Type(java.lang.String,int)" value="11.314"/>
+				<float key="cev.CEV.tliBurn()" value="2.828"/>
+				<float key="cev.Failures$Type.values()" value="2.828"/>
+			</float>
+			<int key="meta_general:classified_events_min" value="44">
+				<int key="cev.ErrorLog.last()" value="0"/>
+				<int key="cev.Spacecraft.readyForTliBurn()" value="0"/>
+				<int key="cev.CEV()" value="4"/>
+				<int key="cev.Failures(cev.ErrorLog)" value="4"/>
+				<int key="cev.Failures.noEARTH_SENSORfailure()" value="0"/>
+				<int key="cev.ErrorLog()" value="4"/>
+				<int key="cev.Spacecraft.doLowActiveAbort()" value="0"/>
+				<int key="cev.Spacecraft(cev.Failures,cev.ErrorLog)" value="4"/>
+				<int key="cev.Spacecraft.doLSAMrendezvous()" value="0"/>
+				<int key="cev.ErrorLog.log(java.lang.String)" value="0"/>
+				<int key="cev.Spacecraft.readyForLSAMrendezvous()" value="0"/>
+				<int key="cev.CEV.completion()" value="0"/>
+				<int key="cev.Failures.noLAS_CNTRLfailure()" value="0"/>
+				<int key="cev.CEV.lsamRendezvous()" value="0"/>
+				<int key="cev.Failures$Type(java.lang.String,int)" value="0"/>
+				<int key="cev.CEV.tliBurn()" value="0"/>
+				<int key="cev.Failures$Type.values()" value="0"/>
+			</int>
+			<int key="meta_general:different_classified_total" value="17"/>
+			<int key="meta_general:different_traces" value="2">
+				<int key="cev.CEV();cev.CEV();cev.ErrorLog();cev.ErrorLog();cev.ErrorLog();cev.ErrorLog();cev.Failures(cev.ErrorLog);cev.Failures(cev.ErrorLog);cev.Failures(cev.ErrorLog);cev.Failures(cev.ErrorLog);cev.Spacecraft(cev.Failures,cev.ErrorLog);cev.Spacecraft(cev.Failures,cev.ErrorLog);cev.Spacecraft(cev.Failures,cev.ErrorLog);cev.Spacecraft(cev.Failures,cev.ErrorLog);cev.CEV();cev.CEV();cev.CEV.completion();cev.CEV.completion();cev.Failures.noLAS_CNTRLfailure();cev.Failures.noLAS_CNTRLfailure();cev.Failures.noLAS_CNTRLfailure();cev.Failures.noLAS_CNTRLfailure();cev.Spacecraft.doLowActiveAbort();cev.Spacecraft.doLowActiveAbort();cev.Spacecraft.doLowActiveAbort();cev.Spacecraft.doLowActiveAbort();cev.Failures.noEARTH_SENSORfailure();cev.Failures.noEARTH_SENSORfailure();cev.Failures.noEARTH_SENSORfailure();cev.Failures.noEARTH_SENSORfailure();cev.CEV.completion();cev.CEV.completion();cev.CEV.lsamRendezvous();cev.CEV.lsamRendezvous();cev.Spacecraft.readyForLSAMrendezvous();cev.Spacecraft.readyForLSAMrendezvous();cev.Spacecraft.readyForLSAMrendezvous();cev.Spacecraft.readyForLSAMrendezvous();cev.Spacecraft.doLSAMrendezvous();cev.Spacecraft.doLSAMrendezvous();cev.Spacecraft.doLSAMrendezvous();cev.Spacecraft.doLSAMrendezvous();cev.CEV.lsamRendezvous();cev.CEV.lsamRendezvous()" value="1"/>
+				<int key="cev.CEV();cev.CEV();cev.ErrorLog();cev.ErrorLog();cev.ErrorLog();cev.ErrorLog();cev.Failures(cev.ErrorLog);cev.Failures(cev.ErrorLog);cev.Failures$Type(java.lang.String,int);cev.Failures$Type(java.lang.String,int);cev.Failures$Type(java.lang.String,int);cev.Failures$Type(java.lang.String,int);cev.Failures$Type(java.lang.String,int);cev.Failures$Type(java.lang.String,int);cev.Failures$Type(java.lang.String,int);cev.Failures$Type(java.lang.String,int);cev.Failures$Type(java.lang.String,int);cev.Failures$Type(java.lang.String,int);cev.Failures$Type(java.lang.String,int);cev.Failures$Type(java.lang.String,int);cev.Failures$Type(java.lang.String,int);cev.Failures$Type(java.lang.String,int);cev.Failures$Type(java.lang.String,int);cev.Failures$Type(java.lang.String,int);cev.Failures$Type.values();cev.Failures$Type.values();cev.Failures$Type.values();cev.Failures$Type.values();cev.Failures(cev.ErrorLog);cev.Failures(cev.ErrorLog);cev.Spacecraft(cev.Failures,cev.ErrorLog);cev.Spacecraft(cev.Failures,cev.ErrorLog);cev.Spacecraft(cev.Failures,cev.ErrorLog);cev.Spacecraft(cev.Failures,cev.ErrorLog);cev.CEV();cev.CEV();cev.CEV.tliBurn();cev.CEV.tliBurn();cev.Spacecraft.readyForTliBurn();cev.Spacecraft.readyForTliBurn();cev.ErrorLog.log(java.lang.String);cev.ErrorLog.log(java.lang.String);cev.ErrorLog.log(java.lang.String);cev.ErrorLog.log(java.lang.String);cev.Spacecraft.readyForTliBurn();cev.Spacecraft.readyForTliBurn();cev.ErrorLog.last();cev.ErrorLog.last();cev.ErrorLog.last();cev.ErrorLog.last();cev.CEV.tliBurn();cev.CEV.tliBurn()" value="1"/>
+			</int>
+			<int key="meta_general:different_classified_min" value="10"/>
+		</string>
+		<string key="Caller Joinpoint" value="apploc:caller:joinpoint apploc:caller:linenr apploc:joinpoint">
+			<int key="meta_general:classified_events_total" value="48">
+				<int key="++cev.Failures$Type(java.lang.String,int)" value="8"/>
+				<int key="++cev.Spacecraft.readyForTliBurn()" value="2"/>
+				<int key="++cev.ErrorLog.last()" value="2"/>
+				<int key="++cev.CEV.tliBurn()" value="2"/>
+				<int key="++cev.Failures.noLAS_CNTRLfailure()" value="2"/>
+				<int key="++cev.Spacecraft.readyForLSAMrendezvous()" value="2"/>
+				<int key="++cev.Spacecraft.doLSAMrendezvous()" value="2"/>
+				<int key="++cev.ErrorLog.log(java.lang.String)" value="2"/>
+				<int key="++cev.CEV()" value="4"/>
+				<int key="++cev.Failures$Type.values()" value="2"/>
+				<int key="++cev.CEV.completion()" value="2"/>
+				<int key="++cev.Spacecraft.doLowActiveAbort()" value="2"/>
+				<int key="++cev.CEV.lsamRendezvous()" value="2"/>
+				<int key="++cev.Failures(cev.ErrorLog)" value="4"/>
+				<int key="++cev.Spacecraft(cev.Failures,cev.ErrorLog)" value="4"/>
+				<int key="++cev.Failures.noEARTH_SENSORfailure()" value="2"/>
+				<int key="++cev.ErrorLog()" value="4"/>
+			</int>
+			<float key="meta_general:classified_events_average" value="24.0">
+				<float key="++cev.Failures$Type(java.lang.String,int)" value="4.0"/>
+				<float key="++cev.Spacecraft.readyForTliBurn()" value="1.0"/>
+				<float key="++cev.ErrorLog.last()" value="1.0"/>
+				<float key="++cev.CEV.tliBurn()" value="1.0"/>
+				<float key="++cev.Failures.noLAS_CNTRLfailure()" value="1.0"/>
+				<float key="++cev.Spacecraft.readyForLSAMrendezvous()" value="1.0"/>
+				<float key="++cev.Spacecraft.doLSAMrendezvous()" value="1.0"/>
+				<float key="++cev.ErrorLog.log(java.lang.String)" value="1.0"/>
+				<float key="++cev.CEV()" value="2.0"/>
+				<float key="++cev.Failures$Type.values()" value="1.0"/>
+				<float key="++cev.CEV.completion()" value="1.0"/>
+				<float key="++cev.Spacecraft.doLowActiveAbort()" value="1.0"/>
+				<float key="++cev.CEV.lsamRendezvous()" value="1.0"/>
+				<float key="++cev.Failures(cev.ErrorLog)" value="2.0"/>
+				<float key="++cev.Spacecraft(cev.Failures,cev.ErrorLog)" value="2.0"/>
+				<float key="++cev.Failures.noEARTH_SENSORfailure()" value="1.0"/>
+				<float key="++cev.ErrorLog()" value="2.0"/>
+			</float>
+			<int key="meta_general:classified_events_max" value="26">
+				<int key="++cev.Failures$Type(java.lang.String,int)" value="8"/>
+				<int key="++cev.Spacecraft.readyForTliBurn()" value="2"/>
+				<int key="++cev.ErrorLog.last()" value="2"/>
+				<int key="++cev.CEV.tliBurn()" value="2"/>
+				<int key="++cev.Failures.noLAS_CNTRLfailure()" value="2"/>
+				<int key="++cev.Spacecraft.readyForLSAMrendezvous()" value="2"/>
+				<int key="++cev.Spacecraft.doLSAMrendezvous()" value="2"/>
+				<int key="++cev.ErrorLog.log(java.lang.String)" value="2"/>
+				<int key="++cev.CEV()" value="2"/>
+				<int key="++cev.Failures$Type.values()" value="2"/>
+				<int key="++cev.CEV.completion()" value="2"/>
+				<int key="++cev.Spacecraft.doLowActiveAbort()" value="2"/>
+				<int key="++cev.CEV.lsamRendezvous()" value="2"/>
+				<int key="++cev.Failures(cev.ErrorLog)" value="2"/>
+				<int key="++cev.Spacecraft(cev.Failures,cev.ErrorLog)" value="2"/>
+				<int key="++cev.Failures.noEARTH_SENSORfailure()" value="2"/>
+				<int key="++cev.ErrorLog()" value="2"/>
+			</int>
+			<int key="meta_general:different_classified_max" value="11"/>
+			<float key="meta_general:different_classified_average" value="10.5"/>
+			<float key="meta_general:different_classified_standard_deviation" value="0.707"/>
+			<float key="meta_general:classified_events_standard_deviation" value="2.828">
+				<float key="++cev.Failures$Type(java.lang.String,int)" value="5.657"/>
+				<float key="++cev.Spacecraft.readyForTliBurn()" value="1.414"/>
+				<float key="++cev.ErrorLog.last()" value="1.414"/>
+				<float key="++cev.CEV.tliBurn()" value="1.414"/>
+				<float key="++cev.Failures.noLAS_CNTRLfailure()" value="1.414"/>
+				<float key="++cev.Spacecraft.readyForLSAMrendezvous()" value="1.414"/>
+				<float key="++cev.Spacecraft.doLSAMrendezvous()" value="1.414"/>
+				<float key="++cev.ErrorLog.log(java.lang.String)" value="1.414"/>
+				<float key="++cev.CEV()" value="0.0"/>
+				<float key="++cev.Failures$Type.values()" value="1.414"/>
+				<float key="++cev.CEV.completion()" value="1.414"/>
+				<float key="++cev.Spacecraft.doLowActiveAbort()" value="1.414"/>
+				<float key="++cev.CEV.lsamRendezvous()" value="1.414"/>
+				<float key="++cev.Failures(cev.ErrorLog)" value="0.0"/>
+				<float key="++cev.Spacecraft(cev.Failures,cev.ErrorLog)" value="0.0"/>
+				<float key="++cev.Failures.noEARTH_SENSORfailure()" value="1.414"/>
+				<float key="++cev.ErrorLog()" value="0.0"/>
+			</float>
+			<int key="meta_general:classified_events_min" value="22">
+				<int key="++cev.Failures$Type(java.lang.String,int)" value="0"/>
+				<int key="++cev.Spacecraft.readyForTliBurn()" value="0"/>
+				<int key="++cev.ErrorLog.last()" value="0"/>
+				<int key="++cev.CEV.tliBurn()" value="0"/>
+				<int key="++cev.Failures.noLAS_CNTRLfailure()" value="0"/>
+				<int key="++cev.Spacecraft.readyForLSAMrendezvous()" value="0"/>
+				<int key="++cev.Spacecraft.doLSAMrendezvous()" value="0"/>
+				<int key="++cev.ErrorLog.log(java.lang.String)" value="0"/>
+				<int key="++cev.CEV()" value="2"/>
+				<int key="++cev.Failures$Type.values()" value="0"/>
+				<int key="++cev.CEV.completion()" value="0"/>
+				<int key="++cev.Spacecraft.doLowActiveAbort()" value="0"/>
+				<int key="++cev.CEV.lsamRendezvous()" value="0"/>
+				<int key="++cev.Failures(cev.ErrorLog)" value="2"/>
+				<int key="++cev.Spacecraft(cev.Failures,cev.ErrorLog)" value="2"/>
+				<int key="++cev.Failures.noEARTH_SENSORfailure()" value="0"/>
+				<int key="++cev.ErrorLog()" value="2"/>
+			</int>
+			<int key="meta_general:different_classified_total" value="17"/>
+			<int key="meta_general:different_traces" value="2">
+				<int key="++cev.CEV();++cev.ErrorLog();++cev.ErrorLog();++cev.Failures(cev.ErrorLog);++cev.Failures(cev.ErrorLog);++cev.Spacecraft(cev.Failures,cev.ErrorLog);++cev.Spacecraft(cev.Failures,cev.ErrorLog);++cev.CEV();++cev.CEV.completion();++cev.Failures.noLAS_CNTRLfailure();++cev.Failures.noLAS_CNTRLfailure();++cev.Spacecraft.doLowActiveAbort();++cev.Spacecraft.doLowActiveAbort();++cev.Failures.noEARTH_SENSORfailure();++cev.Failures.noEARTH_SENSORfailure();++cev.CEV.completion();++cev.CEV.lsamRendezvous();++cev.Spacecraft.readyForLSAMrendezvous();++cev.Spacecraft.readyForLSAMrendezvous();++cev.Spacecraft.doLSAMrendezvous();++cev.Spacecraft.doLSAMrendezvous();++cev.CEV.lsamRendezvous()" value="1"/>
+				<int key="++cev.CEV();++cev.ErrorLog();++cev.ErrorLog();++cev.Failures(cev.ErrorLog);++cev.Failures$Type(java.lang.String,int);++cev.Failures$Type(java.lang.String,int);++cev.Failures$Type(java.lang.String,int);++cev.Failures$Type(java.lang.String,int);++cev.Failures$Type(java.lang.String,int);++cev.Failures$Type(java.lang.String,int);++cev.Failures$Type(java.lang.String,int);++cev.Failures$Type(java.lang.String,int);++cev.Failures$Type.values();++cev.Failures$Type.values();++cev.Failures(cev.ErrorLog);++cev.Spacecraft(cev.Failures,cev.ErrorLog);++cev.Spacecraft(cev.Failures,cev.ErrorLog);++cev.CEV();++cev.CEV.tliBurn();++cev.Spacecraft.readyForTliBurn();++cev.ErrorLog.log(java.lang.String);++cev.ErrorLog.log(java.lang.String);++cev.Spacecraft.readyForTliBurn();++cev.ErrorLog.last();++cev.ErrorLog.last();++cev.CEV.tliBurn()" value="1"/>
+			</int>
+			<int key="meta_general:different_classified_min" value="10"/>
+		</string>
+		<string key="(Event Name AND Lifecycle transition)" value="concept:name lifecycle:transition">
+			<int key="meta_general:classified_events_total" value="48">
+				<int key="cev.Failures.noLAS_CNTRLfailure()+complete" value="1"/>
+				<int key="cev.CEV.completion()+complete" value="1"/>
+				<int key="cev.Failures(cev.ErrorLog)+complete" value="2"/>
+				<int key="cev.Failures$Type.values()+start" value="1"/>
+				<int key="cev.Spacecraft.readyForTliBurn()+start" value="1"/>
+				<int key="cev.Spacecraft.readyForLSAMrendezvous()+complete" value="1"/>
+				<int key="cev.Spacecraft(cev.Failures,cev.ErrorLog)+complete" value="2"/>
+				<int key="cev.Failures(cev.ErrorLog)+start" value="2"/>
+				<int key="cev.Spacecraft.readyForTliBurn()+complete" value="1"/>
+				<int key="cev.Spacecraft.readyForLSAMrendezvous()+start" value="1"/>
+				<int key="cev.ErrorLog.last()+start" value="1"/>
+				<int key="cev.CEV.lsamRendezvous()+start" value="1"/>
+				<int key="cev.Failures.noEARTH_SENSORfailure()+start" value="1"/>
+				<int key="cev.Spacecraft.doLowActiveAbort()+start" value="1"/>
+				<int key="cev.ErrorLog()+complete" value="2"/>
+				<int key="cev.Failures.noEARTH_SENSORfailure()+complete" value="1"/>
+				<int key="cev.CEV.completion()+start" value="1"/>
+				<int key="cev.ErrorLog.last()+complete" value="1"/>
+				<int key="cev.CEV()+complete" value="2"/>
+				<int key="cev.Failures$Type(java.lang.String,int)+start" value="4"/>
+				<int key="cev.ErrorLog()+start" value="2"/>
+				<int key="cev.CEV()+start" value="2"/>
+				<int key="cev.Spacecraft.doLowActiveAbort()+complete" value="1"/>
+				<int key="cev.ErrorLog.log(java.lang.String)+start" value="1"/>
+				<int key="cev.ErrorLog.log(java.lang.String)+complete" value="1"/>
+				<int key="cev.Failures.noLAS_CNTRLfailure()+start" value="1"/>
+				<int key="cev.Spacecraft(cev.Failures,cev.ErrorLog)+start" value="2"/>
+				<int key="cev.CEV.lsamRendezvous()+complete" value="1"/>
+				<int key="cev.CEV.tliBurn()+complete" value="1"/>
+				<int key="cev.Spacecraft.doLSAMrendezvous()+start" value="1"/>
+				<int key="cev.CEV.tliBurn()+start" value="1"/>
+				<int key="cev.Failures$Type(java.lang.String,int)+complete" value="4"/>
+				<int key="cev.Spacecraft.doLSAMrendezvous()+complete" value="1"/>
+				<int key="cev.Failures$Type.values()+complete" value="1"/>
+			</int>
+			<float key="meta_general:classified_events_average" value="24.0">
+				<float key="cev.Failures.noLAS_CNTRLfailure()+complete" value="0.5"/>
+				<float key="cev.CEV.completion()+complete" value="0.5"/>
+				<float key="cev.Failures(cev.ErrorLog)+complete" value="1.0"/>
+				<float key="cev.Failures$Type.values()+start" value="0.5"/>
+				<float key="cev.Spacecraft.readyForTliBurn()+start" value="0.5"/>
+				<float key="cev.Spacecraft.readyForLSAMrendezvous()+complete" value="0.5"/>
+				<float key="cev.Spacecraft(cev.Failures,cev.ErrorLog)+complete" value="1.0"/>
+				<float key="cev.Failures(cev.ErrorLog)+start" value="1.0"/>
+				<float key="cev.Spacecraft.readyForTliBurn()+complete" value="0.5"/>
+				<float key="cev.Spacecraft.readyForLSAMrendezvous()+start" value="0.5"/>
+				<float key="cev.ErrorLog.last()+start" value="0.5"/>
+				<float key="cev.CEV.lsamRendezvous()+start" value="0.5"/>
+				<float key="cev.Failures.noEARTH_SENSORfailure()+start" value="0.5"/>
+				<float key="cev.Spacecraft.doLowActiveAbort()+start" value="0.5"/>
+				<float key="cev.ErrorLog()+complete" value="1.0"/>
+				<float key="cev.Failures.noEARTH_SENSORfailure()+complete" value="0.5"/>
+				<float key="cev.CEV.completion()+start" value="0.5"/>
+				<float key="cev.ErrorLog.last()+complete" value="0.5"/>
+				<float key="cev.CEV()+complete" value="1.0"/>
+				<float key="cev.Failures$Type(java.lang.String,int)+start" value="2.0"/>
+				<float key="cev.ErrorLog()+start" value="1.0"/>
+				<float key="cev.CEV()+start" value="1.0"/>
+				<float key="cev.Spacecraft.doLowActiveAbort()+complete" value="0.5"/>
+				<float key="cev.ErrorLog.log(java.lang.String)+start" value="0.5"/>
+				<float key="cev.ErrorLog.log(java.lang.String)+complete" value="0.5"/>
+				<float key="cev.Failures.noLAS_CNTRLfailure()+start" value="0.5"/>
+				<float key="cev.Spacecraft(cev.Failures,cev.ErrorLog)+start" value="1.0"/>
+				<float key="cev.CEV.lsamRendezvous()+complete" value="0.5"/>
+				<float key="cev.CEV.tliBurn()+complete" value="0.5"/>
+				<float key="cev.Spacecraft.doLSAMrendezvous()+start" value="0.5"/>
+				<float key="cev.CEV.tliBurn()+start" value="0.5"/>
+				<float key="cev.Failures$Type(java.lang.String,int)+complete" value="2.0"/>
+				<float key="cev.Spacecraft.doLSAMrendezvous()+complete" value="0.5"/>
+				<float key="cev.Failures$Type.values()+complete" value="0.5"/>
+			</float>
+			<int key="meta_general:classified_events_max" value="26">
+				<int key="cev.Failures.noLAS_CNTRLfailure()+complete" value="1"/>
+				<int key="cev.CEV.completion()+complete" value="1"/>
+				<int key="cev.Failures(cev.ErrorLog)+complete" value="1"/>
+				<int key="cev.Failures$Type.values()+start" value="1"/>
+				<int key="cev.Spacecraft.readyForTliBurn()+start" value="1"/>
+				<int key="cev.Spacecraft.readyForLSAMrendezvous()+complete" value="1"/>
+				<int key="cev.Spacecraft(cev.Failures,cev.ErrorLog)+complete" value="1"/>
+				<int key="cev.Failures(cev.ErrorLog)+start" value="1"/>
+				<int key="cev.Spacecraft.readyForTliBurn()+complete" value="1"/>
+				<int key="cev.Spacecraft.readyForLSAMrendezvous()+start" value="1"/>
+				<int key="cev.ErrorLog.last()+start" value="1"/>
+				<int key="cev.CEV.lsamRendezvous()+start" value="1"/>
+				<int key="cev.Failures.noEARTH_SENSORfailure()+start" value="1"/>
+				<int key="cev.Spacecraft.doLowActiveAbort()+start" value="1"/>
+				<int key="cev.ErrorLog()+complete" value="1"/>
+				<int key="cev.Failures.noEARTH_SENSORfailure()+complete" value="1"/>
+				<int key="cev.CEV.completion()+start" value="1"/>
+				<int key="cev.ErrorLog.last()+complete" value="1"/>
+				<int key="cev.CEV()+complete" value="1"/>
+				<int key="cev.Failures$Type(java.lang.String,int)+start" value="4"/>
+				<int key="cev.ErrorLog()+start" value="1"/>
+				<int key="cev.CEV()+start" value="1"/>
+				<int key="cev.Spacecraft.doLowActiveAbort()+complete" value="1"/>
+				<int key="cev.ErrorLog.log(java.lang.String)+start" value="1"/>
+				<int key="cev.ErrorLog.log(java.lang.String)+complete" value="1"/>
+				<int key="cev.Failures.noLAS_CNTRLfailure()+start" value="1"/>
+				<int key="cev.Spacecraft(cev.Failures,cev.ErrorLog)+start" value="1"/>
+				<int key="cev.CEV.lsamRendezvous()+complete" value="1"/>
+				<int key="cev.CEV.tliBurn()+complete" value="1"/>
+				<int key="cev.Spacecraft.doLSAMrendezvous()+start" value="1"/>
+				<int key="cev.CEV.tliBurn()+start" value="1"/>
+				<int key="cev.Failures$Type(java.lang.String,int)+complete" value="4"/>
+				<int key="cev.Spacecraft.doLSAMrendezvous()+complete" value="1"/>
+				<int key="cev.Failures$Type.values()+complete" value="1"/>
+			</int>
+			<int key="meta_general:different_classified_max" value="22"/>
+			<float key="meta_general:different_classified_average" value="21.0"/>
+			<float key="meta_general:different_classified_standard_deviation" value="1.414"/>
+			<float key="meta_general:classified_events_standard_deviation" value="2.828">
+				<float key="cev.Failures.noLAS_CNTRLfailure()+complete" value="0.707"/>
+				<float key="cev.CEV.completion()+complete" value="0.707"/>
+				<float key="cev.Failures(cev.ErrorLog)+complete" value="0.0"/>
+				<float key="cev.Failures$Type.values()+start" value="0.707"/>
+				<float key="cev.Spacecraft.readyForTliBurn()+start" value="0.707"/>
+				<float key="cev.Spacecraft.readyForLSAMrendezvous()+complete" value="0.707"/>
+				<float key="cev.Spacecraft(cev.Failures,cev.ErrorLog)+complete" value="0.0"/>
+				<float key="cev.Failures(cev.ErrorLog)+start" value="0.0"/>
+				<float key="cev.Spacecraft.readyForTliBurn()+complete" value="0.707"/>
+				<float key="cev.Spacecraft.readyForLSAMrendezvous()+start" value="0.707"/>
+				<float key="cev.ErrorLog.last()+start" value="0.707"/>
+				<float key="cev.CEV.lsamRendezvous()+start" value="0.707"/>
+				<float key="cev.Failures.noEARTH_SENSORfailure()+start" value="0.707"/>
+				<float key="cev.Spacecraft.doLowActiveAbort()+start" value="0.707"/>
+				<float key="cev.ErrorLog()+complete" value="0.0"/>
+				<float key="cev.Failures.noEARTH_SENSORfailure()+complete" value="0.707"/>
+				<float key="cev.CEV.completion()+start" value="0.707"/>
+				<float key="cev.ErrorLog.last()+complete" value="0.707"/>
+				<float key="cev.CEV()+complete" value="0.0"/>
+				<float key="cev.Failures$Type(java.lang.String,int)+start" value="2.828"/>
+				<float key="cev.ErrorLog()+start" value="0.0"/>
+				<float key="cev.CEV()+start" value="0.0"/>
+				<float key="cev.Spacecraft.doLowActiveAbort()+complete" value="0.707"/>
+				<float key="cev.ErrorLog.log(java.lang.String)+start" value="0.707"/>
+				<float key="cev.ErrorLog.log(java.lang.String)+complete" value="0.707"/>
+				<float key="cev.Failures.noLAS_CNTRLfailure()+start" value="0.707"/>
+				<float key="cev.Spacecraft(cev.Failures,cev.ErrorLog)+start" value="0.0"/>
+				<float key="cev.CEV.lsamRendezvous()+complete" value="0.707"/>
+				<float key="cev.CEV.tliBurn()+complete" value="0.707"/>
+				<float key="cev.Spacecraft.doLSAMrendezvous()+start" value="0.707"/>
+				<float key="cev.CEV.tliBurn()+start" value="0.707"/>
+				<float key="cev.Failures$Type(java.lang.String,int)+complete" value="2.828"/>
+				<float key="cev.Spacecraft.doLSAMrendezvous()+complete" value="0.707"/>
+				<float key="cev.Failures$Type.values()+complete" value="0.707"/>
+			</float>
+			<int key="meta_general:classified_events_min" value="22">
+				<int key="cev.Failures.noLAS_CNTRLfailure()+complete" value="0"/>
+				<int key="cev.CEV.completion()+complete" value="0"/>
+				<int key="cev.Failures(cev.ErrorLog)+complete" value="1"/>
+				<int key="cev.Failures$Type.values()+start" value="0"/>
+				<int key="cev.Spacecraft.readyForTliBurn()+start" value="0"/>
+				<int key="cev.Spacecraft.readyForLSAMrendezvous()+complete" value="0"/>
+				<int key="cev.Spacecraft(cev.Failures,cev.ErrorLog)+complete" value="1"/>
+				<int key="cev.Failures(cev.ErrorLog)+start" value="1"/>
+				<int key="cev.Spacecraft.readyForTliBurn()+complete" value="0"/>
+				<int key="cev.Spacecraft.readyForLSAMrendezvous()+start" value="0"/>
+				<int key="cev.ErrorLog.last()+start" value="0"/>
+				<int key="cev.CEV.lsamRendezvous()+start" value="0"/>
+				<int key="cev.Failures.noEARTH_SENSORfailure()+start" value="0"/>
+				<int key="cev.Spacecraft.doLowActiveAbort()+start" value="0"/>
+				<int key="cev.ErrorLog()+complete" value="1"/>
+				<int key="cev.Failures.noEARTH_SENSORfailure()+complete" value="0"/>
+				<int key="cev.CEV.completion()+start" value="0"/>
+				<int key="cev.ErrorLog.last()+complete" value="0"/>
+				<int key="cev.CEV()+complete" value="1"/>
+				<int key="cev.Failures$Type(java.lang.String,int)+start" value="0"/>
+				<int key="cev.ErrorLog()+start" value="1"/>
+				<int key="cev.CEV()+start" value="1"/>
+				<int key="cev.Spacecraft.doLowActiveAbort()+complete" value="0"/>
+				<int key="cev.ErrorLog.log(java.lang.String)+start" value="0"/>
+				<int key="cev.ErrorLog.log(java.lang.String)+complete" value="0"/>
+				<int key="cev.Failures.noLAS_CNTRLfailure()+start" value="0"/>
+				<int key="cev.Spacecraft(cev.Failures,cev.ErrorLog)+start" value="1"/>
+				<int key="cev.CEV.lsamRendezvous()+complete" value="0"/>
+				<int key="cev.CEV.tliBurn()+complete" value="0"/>
+				<int key="cev.Spacecraft.doLSAMrendezvous()+start" value="0"/>
+				<int key="cev.CEV.tliBurn()+start" value="0"/>
+				<int key="cev.Failures$Type(java.lang.String,int)+complete" value="0"/>
+				<int key="cev.Spacecraft.doLSAMrendezvous()+complete" value="0"/>
+				<int key="cev.Failures$Type.values()+complete" value="0"/>
+			</int>
+			<int key="meta_general:different_classified_total" value="34"/>
+			<int key="meta_general:different_traces" value="2">
+				<int key="cev.CEV()+start;cev.ErrorLog()+start;cev.ErrorLog()+complete;cev.Failures(cev.ErrorLog)+start;cev.Failures$Type(java.lang.String,int)+start;cev.Failures$Type(java.lang.String,int)+complete;cev.Failures$Type(java.lang.String,int)+start;cev.Failures$Type(java.lang.String,int)+complete;cev.Failures$Type(java.lang.String,int)+start;cev.Failures$Type(java.lang.String,int)+complete;cev.Failures$Type(java.lang.String,int)+start;cev.Failures$Type(java.lang.String,int)+complete;cev.Failures$Type.values()+start;cev.Failures$Type.values()+complete;cev.Failures(cev.ErrorLog)+complete;cev.Spacecraft(cev.Failures,cev.ErrorLog)+start;cev.Spacecraft(cev.Failures,cev.ErrorLog)+complete;cev.CEV()+complete;cev.CEV.tliBurn()+start;cev.Spacecraft.readyForTliBurn()+start;cev.ErrorLog.log(java.lang.String)+start;cev.ErrorLog.log(java.lang.String)+complete;cev.Spacecraft.readyForTliBurn()+complete;cev.ErrorLog.last()+start;cev.ErrorLog.last()+complete;cev.CEV.tliBurn()+complete" value="1"/>
+				<int key="cev.CEV()+start;cev.ErrorLog()+start;cev.ErrorLog()+complete;cev.Failures(cev.ErrorLog)+start;cev.Failures(cev.ErrorLog)+complete;cev.Spacecraft(cev.Failures,cev.ErrorLog)+start;cev.Spacecraft(cev.Failures,cev.ErrorLog)+complete;cev.CEV()+complete;cev.CEV.completion()+start;cev.Failures.noLAS_CNTRLfailure()+start;cev.Failures.noLAS_CNTRLfailure()+complete;cev.Spacecraft.doLowActiveAbort()+start;cev.Spacecraft.doLowActiveAbort()+complete;cev.Failures.noEARTH_SENSORfailure()+start;cev.Failures.noEARTH_SENSORfailure()+complete;cev.CEV.completion()+complete;cev.CEV.lsamRendezvous()+start;cev.Spacecraft.readyForLSAMrendezvous()+start;cev.Spacecraft.readyForLSAMrendezvous()+complete;cev.Spacecraft.doLSAMrendezvous()+start;cev.Spacecraft.doLSAMrendezvous()+complete;cev.CEV.lsamRendezvous()+complete" value="1"/>
+			</int>
+			<int key="meta_general:different_classified_min" value="20"/>
+		</string>
+		<string key="(Callee Joinpoint AND Software Event Type)" value="apploc:etype apploc:joinpoint apploc:linenr">
+			<int key="meta_general:classified_events_total" value="48">
+				<int key="call+cev.Failures$Type.values()+1" value="1"/>
+				<int key="return+cev.Failures$Type.values()+1" value="1"/>
+				<int key="return_new+cev.Failures$Type(java.lang.String,int)+24" value="4"/>
+				<int key="return_new+cev.Failures(cev.ErrorLog)+31" value="2"/>
+				<int key="return+cev.ErrorLog.log(java.lang.String)+37" value="1"/>
+				<int key="call_new+cev.Spacecraft(cev.Failures,cev.ErrorLog)+36" value="2"/>
+				<int key="call_new+cev.Failures$Type(java.lang.String,int)+24" value="4"/>
+				<int key="call_new+cev.ErrorLog()+29" value="2"/>
+				<int key="return+cev.Spacecraft.doLSAMrendezvous()+75" value="1"/>
+				<int key="call+cev.Failures.noLAS_CNTRLfailure()+49" value="1"/>
+				<int key="return+cev.CEV.lsamRendezvous()+153" value="1"/>
+				<int key="throw+cev.CEV.tliBurn()+158" value="1"/>
+				<int key="return+cev.Failures.noEARTH_SENSORfailure()+53" value="1"/>
+				<int key="call+cev.Failures.noEARTH_SENSORfailure()+53" value="1"/>
+				<int key="return+cev.Spacecraft.readyForLSAMrendezvous()+150" value="1"/>
+				<int key="call+cev.Spacecraft.doLowActiveAbort()+122" value="1"/>
+				<int key="call+cev.ErrorLog.log(java.lang.String)+37" value="1"/>
+				<int key="return+cev.Spacecraft.doLowActiveAbort()+122" value="1"/>
+				<int key="call+cev.Spacecraft.readyForTliBurn()+176" value="1"/>
+				<int key="return_new+cev.Spacecraft(cev.Failures,cev.ErrorLog)+36" value="2"/>
+				<int key="call_new+cev.CEV()+20" value="2"/>
+				<int key="call+cev.Spacecraft.doLSAMrendezvous()+75" value="1"/>
+				<int key="return_new+cev.ErrorLog()+29" value="2"/>
+				<int key="call+cev.Spacecraft.readyForLSAMrendezvous()+150" value="1"/>
+				<int key="call+cev.ErrorLog.last()+42" value="1"/>
+				<int key="return+cev.ErrorLog.last()+42" value="1"/>
+				<int key="return+cev.CEV.completion()+144" value="1"/>
+				<int key="call+cev.CEV.completion()+144" value="1"/>
+				<int key="call_new+cev.Failures(cev.ErrorLog)+31" value="2"/>
+				<int key="call+cev.CEV.tliBurn()+158" value="1"/>
+				<int key="return+cev.Failures.noLAS_CNTRLfailure()+49" value="1"/>
+				<int key="return_new+cev.CEV()+20" value="2"/>
+				<int key="return+cev.Spacecraft.readyForTliBurn()+176" value="1"/>
+				<int key="call+cev.CEV.lsamRendezvous()+153" value="1"/>
+			</int>
+			<float key="meta_general:classified_events_average" value="24.0">
+				<float key="call+cev.Failures$Type.values()+1" value="0.5"/>
+				<float key="return+cev.Failures$Type.values()+1" value="0.5"/>
+				<float key="return_new+cev.Failures$Type(java.lang.String,int)+24" value="2.0"/>
+				<float key="return_new+cev.Failures(cev.ErrorLog)+31" value="1.0"/>
+				<float key="return+cev.ErrorLog.log(java.lang.String)+37" value="0.5"/>
+				<float key="call_new+cev.Spacecraft(cev.Failures,cev.ErrorLog)+36" value="1.0"/>
+				<float key="call_new+cev.Failures$Type(java.lang.String,int)+24" value="2.0"/>
+				<float key="call_new+cev.ErrorLog()+29" value="1.0"/>
+				<float key="return+cev.Spacecraft.doLSAMrendezvous()+75" value="0.5"/>
+				<float key="call+cev.Failures.noLAS_CNTRLfailure()+49" value="0.5"/>
+				<float key="return+cev.CEV.lsamRendezvous()+153" value="0.5"/>
+				<float key="throw+cev.CEV.tliBurn()+158" value="0.5"/>
+				<float key="return+cev.Failures.noEARTH_SENSORfailure()+53" value="0.5"/>
+				<float key="call+cev.Failures.noEARTH_SENSORfailure()+53" value="0.5"/>
+				<float key="return+cev.Spacecraft.readyForLSAMrendezvous()+150" value="0.5"/>
+				<float key="call+cev.Spacecraft.doLowActiveAbort()+122" value="0.5"/>
+				<float key="call+cev.ErrorLog.log(java.lang.String)+37" value="0.5"/>
+				<float key="return+cev.Spacecraft.doLowActiveAbort()+122" value="0.5"/>
+				<float key="call+cev.Spacecraft.readyForTliBurn()+176" value="0.5"/>
+				<float key="return_new+cev.Spacecraft(cev.Failures,cev.ErrorLog)+36" value="1.0"/>
+				<float key="call_new+cev.CEV()+20" value="1.0"/>
+				<float key="call+cev.Spacecraft.doLSAMrendezvous()+75" value="0.5"/>
+				<float key="return_new+cev.ErrorLog()+29" value="1.0"/>
+				<float key="call+cev.Spacecraft.readyForLSAMrendezvous()+150" value="0.5"/>
+				<float key="call+cev.ErrorLog.last()+42" value="0.5"/>
+				<float key="return+cev.ErrorLog.last()+42" value="0.5"/>
+				<float key="return+cev.CEV.completion()+144" value="0.5"/>
+				<float key="call+cev.CEV.completion()+144" value="0.5"/>
+				<float key="call_new+cev.Failures(cev.ErrorLog)+31" value="1.0"/>
+				<float key="call+cev.CEV.tliBurn()+158" value="0.5"/>
+				<float key="return+cev.Failures.noLAS_CNTRLfailure()+49" value="0.5"/>
+				<float key="return_new+cev.CEV()+20" value="1.0"/>
+				<float key="return+cev.Spacecraft.readyForTliBurn()+176" value="0.5"/>
+				<float key="call+cev.CEV.lsamRendezvous()+153" value="0.5"/>
+			</float>
+			<int key="meta_general:classified_events_max" value="26">
+				<int key="call+cev.Failures$Type.values()+1" value="1"/>
+				<int key="return+cev.Failures$Type.values()+1" value="1"/>
+				<int key="return_new+cev.Failures$Type(java.lang.String,int)+24" value="4"/>
+				<int key="return_new+cev.Failures(cev.ErrorLog)+31" value="1"/>
+				<int key="return+cev.ErrorLog.log(java.lang.String)+37" value="1"/>
+				<int key="call_new+cev.Spacecraft(cev.Failures,cev.ErrorLog)+36" value="1"/>
+				<int key="call_new+cev.Failures$Type(java.lang.String,int)+24" value="4"/>
+				<int key="call_new+cev.ErrorLog()+29" value="1"/>
+				<int key="return+cev.Spacecraft.doLSAMrendezvous()+75" value="1"/>
+				<int key="call+cev.Failures.noLAS_CNTRLfailure()+49" value="1"/>
+				<int key="return+cev.CEV.lsamRendezvous()+153" value="1"/>
+				<int key="throw+cev.CEV.tliBurn()+158" value="1"/>
+				<int key="return+cev.Failures.noEARTH_SENSORfailure()+53" value="1"/>
+				<int key="call+cev.Failures.noEARTH_SENSORfailure()+53" value="1"/>
+				<int key="return+cev.Spacecraft.readyForLSAMrendezvous()+150" value="1"/>
+				<int key="call+cev.Spacecraft.doLowActiveAbort()+122" value="1"/>
+				<int key="call+cev.ErrorLog.log(java.lang.String)+37" value="1"/>
+				<int key="return+cev.Spacecraft.doLowActiveAbort()+122" value="1"/>
+				<int key="call+cev.Spacecraft.readyForTliBurn()+176" value="1"/>
+				<int key="return_new+cev.Spacecraft(cev.Failures,cev.ErrorLog)+36" value="1"/>
+				<int key="call_new+cev.CEV()+20" value="1"/>
+				<int key="call+cev.Spacecraft.doLSAMrendezvous()+75" value="1"/>
+				<int key="return_new+cev.ErrorLog()+29" value="1"/>
+				<int key="call+cev.Spacecraft.readyForLSAMrendezvous()+150" value="1"/>
+				<int key="call+cev.ErrorLog.last()+42" value="1"/>
+				<int key="return+cev.ErrorLog.last()+42" value="1"/>
+				<int key="return+cev.CEV.completion()+144" value="1"/>
+				<int key="call+cev.CEV.completion()+144" value="1"/>
+				<int key="call_new+cev.Failures(cev.ErrorLog)+31" value="1"/>
+				<int key="call+cev.CEV.tliBurn()+158" value="1"/>
+				<int key="return+cev.Failures.noLAS_CNTRLfailure()+49" value="1"/>
+				<int key="return_new+cev.CEV()+20" value="1"/>
+				<int key="return+cev.Spacecraft.readyForTliBurn()+176" value="1"/>
+				<int key="call+cev.CEV.lsamRendezvous()+153" value="1"/>
+			</int>
+			<int key="meta_general:different_classified_max" value="22"/>
+			<float key="meta_general:different_classified_average" value="21.0"/>
+			<float key="meta_general:different_classified_standard_deviation" value="1.414"/>
+			<float key="meta_general:classified_events_standard_deviation" value="2.828">
+				<float key="call+cev.Failures$Type.values()+1" value="0.707"/>
+				<float key="return+cev.Failures$Type.values()+1" value="0.707"/>
+				<float key="return_new+cev.Failures$Type(java.lang.String,int)+24" value="2.828"/>
+				<float key="return_new+cev.Failures(cev.ErrorLog)+31" value="0.0"/>
+				<float key="return+cev.ErrorLog.log(java.lang.String)+37" value="0.707"/>
+				<float key="call_new+cev.Spacecraft(cev.Failures,cev.ErrorLog)+36" value="0.0"/>
+				<float key="call_new+cev.Failures$Type(java.lang.String,int)+24" value="2.828"/>
+				<float key="call_new+cev.ErrorLog()+29" value="0.0"/>
+				<float key="return+cev.Spacecraft.doLSAMrendezvous()+75" value="0.707"/>
+				<float key="call+cev.Failures.noLAS_CNTRLfailure()+49" value="0.707"/>
+				<float key="return+cev.CEV.lsamRendezvous()+153" value="0.707"/>
+				<float key="throw+cev.CEV.tliBurn()+158" value="0.707"/>
+				<float key="return+cev.Failures.noEARTH_SENSORfailure()+53" value="0.707"/>
+				<float key="call+cev.Failures.noEARTH_SENSORfailure()+53" value="0.707"/>
+				<float key="return+cev.Spacecraft.readyForLSAMrendezvous()+150" value="0.707"/>
+				<float key="call+cev.Spacecraft.doLowActiveAbort()+122" value="0.707"/>
+				<float key="call+cev.ErrorLog.log(java.lang.String)+37" value="0.707"/>
+				<float key="return+cev.Spacecraft.doLowActiveAbort()+122" value="0.707"/>
+				<float key="call+cev.Spacecraft.readyForTliBurn()+176" value="0.707"/>
+				<float key="return_new+cev.Spacecraft(cev.Failures,cev.ErrorLog)+36" value="0.0"/>
+				<float key="call_new+cev.CEV()+20" value="0.0"/>
+				<float key="call+cev.Spacecraft.doLSAMrendezvous()+75" value="0.707"/>
+				<float key="return_new+cev.ErrorLog()+29" value="0.0"/>
+				<float key="call+cev.Spacecraft.readyForLSAMrendezvous()+150" value="0.707"/>
+				<float key="call+cev.ErrorLog.last()+42" value="0.707"/>
+				<float key="return+cev.ErrorLog.last()+42" value="0.707"/>
+				<float key="return+cev.CEV.completion()+144" value="0.707"/>
+				<float key="call+cev.CEV.completion()+144" value="0.707"/>
+				<float key="call_new+cev.Failures(cev.ErrorLog)+31" value="0.0"/>
+				<float key="call+cev.CEV.tliBurn()+158" value="0.707"/>
+				<float key="return+cev.Failures.noLAS_CNTRLfailure()+49" value="0.707"/>
+				<float key="return_new+cev.CEV()+20" value="0.0"/>
+				<float key="return+cev.Spacecraft.readyForTliBurn()+176" value="0.707"/>
+				<float key="call+cev.CEV.lsamRendezvous()+153" value="0.707"/>
+			</float>
+			<int key="meta_general:classified_events_min" value="22">
+				<int key="call+cev.Failures$Type.values()+1" value="0"/>
+				<int key="return+cev.Failures$Type.values()+1" value="0"/>
+				<int key="return_new+cev.Failures$Type(java.lang.String,int)+24" value="0"/>
+				<int key="return_new+cev.Failures(cev.ErrorLog)+31" value="1"/>
+				<int key="return+cev.ErrorLog.log(java.lang.String)+37" value="0"/>
+				<int key="call_new+cev.Spacecraft(cev.Failures,cev.ErrorLog)+36" value="1"/>
+				<int key="call_new+cev.Failures$Type(java.lang.String,int)+24" value="0"/>
+				<int key="call_new+cev.ErrorLog()+29" value="1"/>
+				<int key="return+cev.Spacecraft.doLSAMrendezvous()+75" value="0"/>
+				<int key="call+cev.Failures.noLAS_CNTRLfailure()+49" value="0"/>
+				<int key="return+cev.CEV.lsamRendezvous()+153" value="0"/>
+				<int key="throw+cev.CEV.tliBurn()+158" value="0"/>
+				<int key="return+cev.Failures.noEARTH_SENSORfailure()+53" value="0"/>
+				<int key="call+cev.Failures.noEARTH_SENSORfailure()+53" value="0"/>
+				<int key="return+cev.Spacecraft.readyForLSAMrendezvous()+150" value="0"/>
+				<int key="call+cev.Spacecraft.doLowActiveAbort()+122" value="0"/>
+				<int key="call+cev.ErrorLog.log(java.lang.String)+37" value="0"/>
+				<int key="return+cev.Spacecraft.doLowActiveAbort()+122" value="0"/>
+				<int key="call+cev.Spacecraft.readyForTliBurn()+176" value="0"/>
+				<int key="return_new+cev.Spacecraft(cev.Failures,cev.ErrorLog)+36" value="1"/>
+				<int key="call_new+cev.CEV()+20" value="1"/>
+				<int key="call+cev.Spacecraft.doLSAMrendezvous()+75" value="0"/>
+				<int key="return_new+cev.ErrorLog()+29" value="1"/>
+				<int key="call+cev.Spacecraft.readyForLSAMrendezvous()+150" value="0"/>
+				<int key="call+cev.ErrorLog.last()+42" value="0"/>
+				<int key="return+cev.ErrorLog.last()+42" value="0"/>
+				<int key="return+cev.CEV.completion()+144" value="0"/>
+				<int key="call+cev.CEV.completion()+144" value="0"/>
+				<int key="call_new+cev.Failures(cev.ErrorLog)+31" value="1"/>
+				<int key="call+cev.CEV.tliBurn()+158" value="0"/>
+				<int key="return+cev.Failures.noLAS_CNTRLfailure()+49" value="0"/>
+				<int key="return_new+cev.CEV()+20" value="1"/>
+				<int key="return+cev.Spacecraft.readyForTliBurn()+176" value="0"/>
+				<int key="call+cev.CEV.lsamRendezvous()+153" value="0"/>
+			</int>
+			<int key="meta_general:different_classified_total" value="34"/>
+			<int key="meta_general:different_traces" value="2">
+				<int key="call_new+cev.CEV()+20;call_new+cev.ErrorLog()+29;return_new+cev.ErrorLog()+29;call_new+cev.Failures(cev.ErrorLog)+31;return_new+cev.Failures(cev.ErrorLog)+31;call_new+cev.Spacecraft(cev.Failures,cev.ErrorLog)+36;return_new+cev.Spacecraft(cev.Failures,cev.ErrorLog)+36;return_new+cev.CEV()+20;call+cev.CEV.completion()+144;call+cev.Failures.noLAS_CNTRLfailure()+49;return+cev.Failures.noLAS_CNTRLfailure()+49;call+cev.Spacecraft.doLowActiveAbort()+122;return+cev.Spacecraft.doLowActiveAbort()+122;call+cev.Failures.noEARTH_SENSORfailure()+53;return+cev.Failures.noEARTH_SENSORfailure()+53;return+cev.CEV.completion()+144;call+cev.CEV.lsamRendezvous()+153;call+cev.Spacecraft.readyForLSAMrendezvous()+150;return+cev.Spacecraft.readyForLSAMrendezvous()+150;call+cev.Spacecraft.doLSAMrendezvous()+75;return+cev.Spacecraft.doLSAMrendezvous()+75;return+cev.CEV.lsamRendezvous()+153" value="1"/>
+				<int key="call_new+cev.CEV()+20;call_new+cev.ErrorLog()+29;return_new+cev.ErrorLog()+29;call_new+cev.Failures(cev.ErrorLog)+31;call_new+cev.Failures$Type(java.lang.String,int)+24;return_new+cev.Failures$Type(java.lang.String,int)+24;call_new+cev.Failures$Type(java.lang.String,int)+24;return_new+cev.Failures$Type(java.lang.String,int)+24;call_new+cev.Failures$Type(java.lang.String,int)+24;return_new+cev.Failures$Type(java.lang.String,int)+24;call_new+cev.Failures$Type(java.lang.String,int)+24;return_new+cev.Failures$Type(java.lang.String,int)+24;call+cev.Failures$Type.values()+1;return+cev.Failures$Type.values()+1;return_new+cev.Failures(cev.ErrorLog)+31;call_new+cev.Spacecraft(cev.Failures,cev.ErrorLog)+36;return_new+cev.Spacecraft(cev.Failures,cev.ErrorLog)+36;return_new+cev.CEV()+20;call+cev.CEV.tliBurn()+158;call+cev.Spacecraft.readyForTliBurn()+176;call+cev.ErrorLog.log(java.lang.String)+37;return+cev.ErrorLog.log(java.lang.String)+37;return+cev.Spacecraft.readyForTliBurn()+176;call+cev.ErrorLog.last()+42;return+cev.ErrorLog.last()+42;throw+cev.CEV.tliBurn()+158" value="1"/>
+			</int>
+			<int key="meta_general:different_classified_min" value="20"/>
+		</string>
+		<string key="Callee Joinpoint" value="apploc:joinpoint apploc:linenr">
+			<int key="meta_general:classified_events_total" value="48">
+				<int key="cev.ErrorLog.log(java.lang.String)+37" value="2"/>
+				<int key="cev.Failures$Type.values()+1" value="2"/>
+				<int key="cev.CEV.tliBurn()+158" value="2"/>
+				<int key="cev.Failures$Type(java.lang.String,int)+24" value="8"/>
+				<int key="cev.ErrorLog()+29" value="4"/>
+				<int key="cev.Spacecraft.readyForLSAMrendezvous()+150" value="2"/>
+				<int key="cev.ErrorLog.last()+42" value="2"/>
+				<int key="cev.Failures.noLAS_CNTRLfailure()+49" value="2"/>
+				<int key="cev.CEV.lsamRendezvous()+153" value="2"/>
+				<int key="cev.Spacecraft.doLowActiveAbort()+122" value="2"/>
+				<int key="cev.Spacecraft.doLSAMrendezvous()+75" value="2"/>
+				<int key="cev.Failures.noEARTH_SENSORfailure()+53" value="2"/>
+				<int key="cev.Spacecraft(cev.Failures,cev.ErrorLog)+36" value="4"/>
+				<int key="cev.CEV.completion()+144" value="2"/>
+				<int key="cev.Spacecraft.readyForTliBurn()+176" value="2"/>
+				<int key="cev.Failures(cev.ErrorLog)+31" value="4"/>
+				<int key="cev.CEV()+20" value="4"/>
+			</int>
+			<float key="meta_general:classified_events_average" value="24.0">
+				<float key="cev.ErrorLog.log(java.lang.String)+37" value="1.0"/>
+				<float key="cev.Failures$Type.values()+1" value="1.0"/>
+				<float key="cev.CEV.tliBurn()+158" value="1.0"/>
+				<float key="cev.Failures$Type(java.lang.String,int)+24" value="4.0"/>
+				<float key="cev.ErrorLog()+29" value="2.0"/>
+				<float key="cev.Spacecraft.readyForLSAMrendezvous()+150" value="1.0"/>
+				<float key="cev.ErrorLog.last()+42" value="1.0"/>
+				<float key="cev.Failures.noLAS_CNTRLfailure()+49" value="1.0"/>
+				<float key="cev.CEV.lsamRendezvous()+153" value="1.0"/>
+				<float key="cev.Spacecraft.doLowActiveAbort()+122" value="1.0"/>
+				<float key="cev.Spacecraft.doLSAMrendezvous()+75" value="1.0"/>
+				<float key="cev.Failures.noEARTH_SENSORfailure()+53" value="1.0"/>
+				<float key="cev.Spacecraft(cev.Failures,cev.ErrorLog)+36" value="2.0"/>
+				<float key="cev.CEV.completion()+144" value="1.0"/>
+				<float key="cev.Spacecraft.readyForTliBurn()+176" value="1.0"/>
+				<float key="cev.Failures(cev.ErrorLog)+31" value="2.0"/>
+				<float key="cev.CEV()+20" value="2.0"/>
+			</float>
+			<int key="meta_general:classified_events_max" value="26">
+				<int key="cev.ErrorLog.log(java.lang.String)+37" value="2"/>
+				<int key="cev.Failures$Type.values()+1" value="2"/>
+				<int key="cev.CEV.tliBurn()+158" value="2"/>
+				<int key="cev.Failures$Type(java.lang.String,int)+24" value="8"/>
+				<int key="cev.ErrorLog()+29" value="2"/>
+				<int key="cev.Spacecraft.readyForLSAMrendezvous()+150" value="2"/>
+				<int key="cev.ErrorLog.last()+42" value="2"/>
+				<int key="cev.Failures.noLAS_CNTRLfailure()+49" value="2"/>
+				<int key="cev.CEV.lsamRendezvous()+153" value="2"/>
+				<int key="cev.Spacecraft.doLowActiveAbort()+122" value="2"/>
+				<int key="cev.Spacecraft.doLSAMrendezvous()+75" value="2"/>
+				<int key="cev.Failures.noEARTH_SENSORfailure()+53" value="2"/>
+				<int key="cev.Spacecraft(cev.Failures,cev.ErrorLog)+36" value="2"/>
+				<int key="cev.CEV.completion()+144" value="2"/>
+				<int key="cev.Spacecraft.readyForTliBurn()+176" value="2"/>
+				<int key="cev.Failures(cev.ErrorLog)+31" value="2"/>
+				<int key="cev.CEV()+20" value="2"/>
+			</int>
+			<int key="meta_general:different_classified_max" value="11"/>
+			<float key="meta_general:different_classified_average" value="10.5"/>
+			<float key="meta_general:different_classified_standard_deviation" value="0.707"/>
+			<float key="meta_general:classified_events_standard_deviation" value="2.828">
+				<float key="cev.ErrorLog.log(java.lang.String)+37" value="1.414"/>
+				<float key="cev.Failures$Type.values()+1" value="1.414"/>
+				<float key="cev.CEV.tliBurn()+158" value="1.414"/>
+				<float key="cev.Failures$Type(java.lang.String,int)+24" value="5.657"/>
+				<float key="cev.ErrorLog()+29" value="0.0"/>
+				<float key="cev.Spacecraft.readyForLSAMrendezvous()+150" value="1.414"/>
+				<float key="cev.ErrorLog.last()+42" value="1.414"/>
+				<float key="cev.Failures.noLAS_CNTRLfailure()+49" value="1.414"/>
+				<float key="cev.CEV.lsamRendezvous()+153" value="1.414"/>
+				<float key="cev.Spacecraft.doLowActiveAbort()+122" value="1.414"/>
+				<float key="cev.Spacecraft.doLSAMrendezvous()+75" value="1.414"/>
+				<float key="cev.Failures.noEARTH_SENSORfailure()+53" value="1.414"/>
+				<float key="cev.Spacecraft(cev.Failures,cev.ErrorLog)+36" value="0.0"/>
+				<float key="cev.CEV.completion()+144" value="1.414"/>
+				<float key="cev.Spacecraft.readyForTliBurn()+176" value="1.414"/>
+				<float key="cev.Failures(cev.ErrorLog)+31" value="0.0"/>
+				<float key="cev.CEV()+20" value="0.0"/>
+			</float>
+			<int key="meta_general:classified_events_min" value="22">
+				<int key="cev.ErrorLog.log(java.lang.String)+37" value="0"/>
+				<int key="cev.Failures$Type.values()+1" value="0"/>
+				<int key="cev.CEV.tliBurn()+158" value="0"/>
+				<int key="cev.Failures$Type(java.lang.String,int)+24" value="0"/>
+				<int key="cev.ErrorLog()+29" value="2"/>
+				<int key="cev.Spacecraft.readyForLSAMrendezvous()+150" value="0"/>
+				<int key="cev.ErrorLog.last()+42" value="0"/>
+				<int key="cev.Failures.noLAS_CNTRLfailure()+49" value="0"/>
+				<int key="cev.CEV.lsamRendezvous()+153" value="0"/>
+				<int key="cev.Spacecraft.doLowActiveAbort()+122" value="0"/>
+				<int key="cev.Spacecraft.doLSAMrendezvous()+75" value="0"/>
+				<int key="cev.Failures.noEARTH_SENSORfailure()+53" value="0"/>
+				<int key="cev.Spacecraft(cev.Failures,cev.ErrorLog)+36" value="2"/>
+				<int key="cev.CEV.completion()+144" value="0"/>
+				<int key="cev.Spacecraft.readyForTliBurn()+176" value="0"/>
+				<int key="cev.Failures(cev.ErrorLog)+31" value="2"/>
+				<int key="cev.CEV()+20" value="2"/>
+			</int>
+			<int key="meta_general:different_classified_total" value="17"/>
+			<int key="meta_general:different_traces" value="2">
+				<int key="cev.CEV()+20;cev.ErrorLog()+29;cev.ErrorLog()+29;cev.Failures(cev.ErrorLog)+31;cev.Failures(cev.ErrorLog)+31;cev.Spacecraft(cev.Failures,cev.ErrorLog)+36;cev.Spacecraft(cev.Failures,cev.ErrorLog)+36;cev.CEV()+20;cev.CEV.completion()+144;cev.Failures.noLAS_CNTRLfailure()+49;cev.Failures.noLAS_CNTRLfailure()+49;cev.Spacecraft.doLowActiveAbort()+122;cev.Spacecraft.doLowActiveAbort()+122;cev.Failures.noEARTH_SENSORfailure()+53;cev.Failures.noEARTH_SENSORfailure()+53;cev.CEV.completion()+144;cev.CEV.lsamRendezvous()+153;cev.Spacecraft.readyForLSAMrendezvous()+150;cev.Spacecraft.readyForLSAMrendezvous()+150;cev.Spacecraft.doLSAMrendezvous()+75;cev.Spacecraft.doLSAMrendezvous()+75;cev.CEV.lsamRendezvous()+153" value="1"/>
+				<int key="cev.CEV()+20;cev.ErrorLog()+29;cev.ErrorLog()+29;cev.Failures(cev.ErrorLog)+31;cev.Failures$Type(java.lang.String,int)+24;cev.Failures$Type(java.lang.String,int)+24;cev.Failures$Type(java.lang.String,int)+24;cev.Failures$Type(java.lang.String,int)+24;cev.Failures$Type(java.lang.String,int)+24;cev.Failures$Type(java.lang.String,int)+24;cev.Failures$Type(java.lang.String,int)+24;cev.Failures$Type(java.lang.String,int)+24;cev.Failures$Type.values()+1;cev.Failures$Type.values()+1;cev.Failures(cev.ErrorLog)+31;cev.Spacecraft(cev.Failures,cev.ErrorLog)+36;cev.Spacecraft(cev.Failures,cev.ErrorLog)+36;cev.CEV()+20;cev.CEV.tliBurn()+158;cev.Spacecraft.readyForTliBurn()+176;cev.ErrorLog.log(java.lang.String)+37;cev.ErrorLog.log(java.lang.String)+37;cev.Spacecraft.readyForTliBurn()+176;cev.ErrorLog.last()+42;cev.ErrorLog.last()+42;cev.CEV.tliBurn()+158" value="1"/>
+			</int>
+			<int key="meta_general:different_classified_min" value="10"/>
+		</string>
+		<string key="(Caller Joinpoint AND Software Event Type)" value="apploc:caller:joinpoint apploc:caller:linenr apploc:etype apploc:joinpoint">
+			<int key="meta_general:classified_events_total" value="48">
+				<int key="++return_new+cev.ErrorLog()" value="2"/>
+				<int key="++return_new+cev.CEV()" value="2"/>
+				<int key="++call+cev.CEV.tliBurn()" value="1"/>
+				<int key="++return_new+cev.Failures$Type(java.lang.String,int)" value="4"/>
+				<int key="++call+cev.CEV.completion()" value="1"/>
+				<int key="++call_new+cev.Spacecraft(cev.Failures,cev.ErrorLog)" value="2"/>
+				<int key="++call+cev.Spacecraft.readyForTliBurn()" value="1"/>
+				<int key="++call+cev.ErrorLog.last()" value="1"/>
+				<int key="++call+cev.Spacecraft.readyForLSAMrendezvous()" value="1"/>
+				<int key="++return+cev.ErrorLog.log(java.lang.String)" value="1"/>
+				<int key="++return+cev.CEV.lsamRendezvous()" value="1"/>
+				<int key="++return+cev.Failures.noEARTH_SENSORfailure()" value="1"/>
+				<int key="++call_new+cev.ErrorLog()" value="2"/>
+				<int key="++call_new+cev.Failures$Type(java.lang.String,int)" value="4"/>
+				<int key="++call_new+cev.CEV()" value="2"/>
+				<int key="++call+cev.Spacecraft.doLowActiveAbort()" value="1"/>
+				<int key="++call+cev.Failures.noEARTH_SENSORfailure()" value="1"/>
+				<int key="++return+cev.Spacecraft.doLowActiveAbort()" value="1"/>
+				<int key="++return+cev.Spacecraft.readyForTliBurn()" value="1"/>
+				<int key="++return_new+cev.Spacecraft(cev.Failures,cev.ErrorLog)" value="2"/>
+				<int key="++return+cev.Spacecraft.doLSAMrendezvous()" value="1"/>
+				<int key="++call+cev.Failures.noLAS_CNTRLfailure()" value="1"/>
+				<int key="++call_new+cev.Failures(cev.ErrorLog)" value="2"/>
+				<int key="++return_new+cev.Failures(cev.ErrorLog)" value="2"/>
+				<int key="++throw+cev.CEV.tliBurn()" value="1"/>
+				<int key="++return+cev.Failures.noLAS_CNTRLfailure()" value="1"/>
+				<int key="++return+cev.Spacecraft.readyForLSAMrendezvous()" value="1"/>
+				<int key="++call+cev.Failures$Type.values()" value="1"/>
+				<int key="++return+cev.CEV.completion()" value="1"/>
+				<int key="++call+cev.Spacecraft.doLSAMrendezvous()" value="1"/>
+				<int key="++call+cev.ErrorLog.log(java.lang.String)" value="1"/>
+				<int key="++return+cev.Failures$Type.values()" value="1"/>
+				<int key="++call+cev.CEV.lsamRendezvous()" value="1"/>
+				<int key="++return+cev.ErrorLog.last()" value="1"/>
+			</int>
+			<float key="meta_general:classified_events_average" value="24.0">
+				<float key="++return_new+cev.ErrorLog()" value="1.0"/>
+				<float key="++return_new+cev.CEV()" value="1.0"/>
+				<float key="++call+cev.CEV.tliBurn()" value="0.5"/>
+				<float key="++return_new+cev.Failures$Type(java.lang.String,int)" value="2.0"/>
+				<float key="++call+cev.CEV.completion()" value="0.5"/>
+				<float key="++call_new+cev.Spacecraft(cev.Failures,cev.ErrorLog)" value="1.0"/>
+				<float key="++call+cev.Spacecraft.readyForTliBurn()" value="0.5"/>
+				<float key="++call+cev.ErrorLog.last()" value="0.5"/>
+				<float key="++call+cev.Spacecraft.readyForLSAMrendezvous()" value="0.5"/>
+				<float key="++return+cev.ErrorLog.log(java.lang.String)" value="0.5"/>
+				<float key="++return+cev.CEV.lsamRendezvous()" value="0.5"/>
+				<float key="++return+cev.Failures.noEARTH_SENSORfailure()" value="0.5"/>
+				<float key="++call_new+cev.ErrorLog()" value="1.0"/>
+				<float key="++call_new+cev.Failures$Type(java.lang.String,int)" value="2.0"/>
+				<float key="++call_new+cev.CEV()" value="1.0"/>
+				<float key="++call+cev.Spacecraft.doLowActiveAbort()" value="0.5"/>
+				<float key="++call+cev.Failures.noEARTH_SENSORfailure()" value="0.5"/>
+				<float key="++return+cev.Spacecraft.doLowActiveAbort()" value="0.5"/>
+				<float key="++return+cev.Spacecraft.readyForTliBurn()" value="0.5"/>
+				<float key="++return_new+cev.Spacecraft(cev.Failures,cev.ErrorLog)" value="1.0"/>
+				<float key="++return+cev.Spacecraft.doLSAMrendezvous()" value="0.5"/>
+				<float key="++call+cev.Failures.noLAS_CNTRLfailure()" value="0.5"/>
+				<float key="++call_new+cev.Failures(cev.ErrorLog)" value="1.0"/>
+				<float key="++return_new+cev.Failures(cev.ErrorLog)" value="1.0"/>
+				<float key="++throw+cev.CEV.tliBurn()" value="0.5"/>
+				<float key="++return+cev.Failures.noLAS_CNTRLfailure()" value="0.5"/>
+				<float key="++return+cev.Spacecraft.readyForLSAMrendezvous()" value="0.5"/>
+				<float key="++call+cev.Failures$Type.values()" value="0.5"/>
+				<float key="++return+cev.CEV.completion()" value="0.5"/>
+				<float key="++call+cev.Spacecraft.doLSAMrendezvous()" value="0.5"/>
+				<float key="++call+cev.ErrorLog.log(java.lang.String)" value="0.5"/>
+				<float key="++return+cev.Failures$Type.values()" value="0.5"/>
+				<float key="++call+cev.CEV.lsamRendezvous()" value="0.5"/>
+				<float key="++return+cev.ErrorLog.last()" value="0.5"/>
+			</float>
+			<int key="meta_general:classified_events_max" value="26">
+				<int key="++return_new+cev.ErrorLog()" value="1"/>
+				<int key="++return_new+cev.CEV()" value="1"/>
+				<int key="++call+cev.CEV.tliBurn()" value="1"/>
+				<int key="++return_new+cev.Failures$Type(java.lang.String,int)" value="4"/>
+				<int key="++call+cev.CEV.completion()" value="1"/>
+				<int key="++call_new+cev.Spacecraft(cev.Failures,cev.ErrorLog)" value="1"/>
+				<int key="++call+cev.Spacecraft.readyForTliBurn()" value="1"/>
+				<int key="++call+cev.ErrorLog.last()" value="1"/>
+				<int key="++call+cev.Spacecraft.readyForLSAMrendezvous()" value="1"/>
+				<int key="++return+cev.ErrorLog.log(java.lang.String)" value="1"/>
+				<int key="++return+cev.CEV.lsamRendezvous()" value="1"/>
+				<int key="++return+cev.Failures.noEARTH_SENSORfailure()" value="1"/>
+				<int key="++call_new+cev.ErrorLog()" value="1"/>
+				<int key="++call_new+cev.Failures$Type(java.lang.String,int)" value="4"/>
+				<int key="++call_new+cev.CEV()" value="1"/>
+				<int key="++call+cev.Spacecraft.doLowActiveAbort()" value="1"/>
+				<int key="++call+cev.Failures.noEARTH_SENSORfailure()" value="1"/>
+				<int key="++return+cev.Spacecraft.doLowActiveAbort()" value="1"/>
+				<int key="++return+cev.Spacecraft.readyForTliBurn()" value="1"/>
+				<int key="++return_new+cev.Spacecraft(cev.Failures,cev.ErrorLog)" value="1"/>
+				<int key="++return+cev.Spacecraft.doLSAMrendezvous()" value="1"/>
+				<int key="++call+cev.Failures.noLAS_CNTRLfailure()" value="1"/>
+				<int key="++call_new+cev.Failures(cev.ErrorLog)" value="1"/>
+				<int key="++return_new+cev.Failures(cev.ErrorLog)" value="1"/>
+				<int key="++throw+cev.CEV.tliBurn()" value="1"/>
+				<int key="++return+cev.Failures.noLAS_CNTRLfailure()" value="1"/>
+				<int key="++return+cev.Spacecraft.readyForLSAMrendezvous()" value="1"/>
+				<int key="++call+cev.Failures$Type.values()" value="1"/>
+				<int key="++return+cev.CEV.completion()" value="1"/>
+				<int key="++call+cev.Spacecraft.doLSAMrendezvous()" value="1"/>
+				<int key="++call+cev.ErrorLog.log(java.lang.String)" value="1"/>
+				<int key="++return+cev.Failures$Type.values()" value="1"/>
+				<int key="++call+cev.CEV.lsamRendezvous()" value="1"/>
+				<int key="++return+cev.ErrorLog.last()" value="1"/>
+			</int>
+			<int key="meta_general:different_classified_max" value="22"/>
+			<float key="meta_general:different_classified_average" value="21.0"/>
+			<float key="meta_general:different_classified_standard_deviation" value="1.414"/>
+			<float key="meta_general:classified_events_standard_deviation" value="2.828">
+				<float key="++return_new+cev.ErrorLog()" value="0.0"/>
+				<float key="++return_new+cev.CEV()" value="0.0"/>
+				<float key="++call+cev.CEV.tliBurn()" value="0.707"/>
+				<float key="++return_new+cev.Failures$Type(java.lang.String,int)" value="2.828"/>
+				<float key="++call+cev.CEV.completion()" value="0.707"/>
+				<float key="++call_new+cev.Spacecraft(cev.Failures,cev.ErrorLog)" value="0.0"/>
+				<float key="++call+cev.Spacecraft.readyForTliBurn()" value="0.707"/>
+				<float key="++call+cev.ErrorLog.last()" value="0.707"/>
+				<float key="++call+cev.Spacecraft.readyForLSAMrendezvous()" value="0.707"/>
+				<float key="++return+cev.ErrorLog.log(java.lang.String)" value="0.707"/>
+				<float key="++return+cev.CEV.lsamRendezvous()" value="0.707"/>
+				<float key="++return+cev.Failures.noEARTH_SENSORfailure()" value="0.707"/>
+				<float key="++call_new+cev.ErrorLog()" value="0.0"/>
+				<float key="++call_new+cev.Failures$Type(java.lang.String,int)" value="2.828"/>
+				<float key="++call_new+cev.CEV()" value="0.0"/>
+				<float key="++call+cev.Spacecraft.doLowActiveAbort()" value="0.707"/>
+				<float key="++call+cev.Failures.noEARTH_SENSORfailure()" value="0.707"/>
+				<float key="++return+cev.Spacecraft.doLowActiveAbort()" value="0.707"/>
+				<float key="++return+cev.Spacecraft.readyForTliBurn()" value="0.707"/>
+				<float key="++return_new+cev.Spacecraft(cev.Failures,cev.ErrorLog)" value="0.0"/>
+				<float key="++return+cev.Spacecraft.doLSAMrendezvous()" value="0.707"/>
+				<float key="++call+cev.Failures.noLAS_CNTRLfailure()" value="0.707"/>
+				<float key="++call_new+cev.Failures(cev.ErrorLog)" value="0.0"/>
+				<float key="++return_new+cev.Failures(cev.ErrorLog)" value="0.0"/>
+				<float key="++throw+cev.CEV.tliBurn()" value="0.707"/>
+				<float key="++return+cev.Failures.noLAS_CNTRLfailure()" value="0.707"/>
+				<float key="++return+cev.Spacecraft.readyForLSAMrendezvous()" value="0.707"/>
+				<float key="++call+cev.Failures$Type.values()" value="0.707"/>
+				<float key="++return+cev.CEV.completion()" value="0.707"/>
+				<float key="++call+cev.Spacecraft.doLSAMrendezvous()" value="0.707"/>
+				<float key="++call+cev.ErrorLog.log(java.lang.String)" value="0.707"/>
+				<float key="++return+cev.Failures$Type.values()" value="0.707"/>
+				<float key="++call+cev.CEV.lsamRendezvous()" value="0.707"/>
+				<float key="++return+cev.ErrorLog.last()" value="0.707"/>
+			</float>
+			<int key="meta_general:classified_events_min" value="22">
+				<int key="++return_new+cev.ErrorLog()" value="1"/>
+				<int key="++return_new+cev.CEV()" value="1"/>
+				<int key="++call+cev.CEV.tliBurn()" value="0"/>
+				<int key="++return_new+cev.Failures$Type(java.lang.String,int)" value="0"/>
+				<int key="++call+cev.CEV.completion()" value="0"/>
+				<int key="++call_new+cev.Spacecraft(cev.Failures,cev.ErrorLog)" value="1"/>
+				<int key="++call+cev.Spacecraft.readyForTliBurn()" value="0"/>
+				<int key="++call+cev.ErrorLog.last()" value="0"/>
+				<int key="++call+cev.Spacecraft.readyForLSAMrendezvous()" value="0"/>
+				<int key="++return+cev.ErrorLog.log(java.lang.String)" value="0"/>
+				<int key="++return+cev.CEV.lsamRendezvous()" value="0"/>
+				<int key="++return+cev.Failures.noEARTH_SENSORfailure()" value="0"/>
+				<int key="++call_new+cev.ErrorLog()" value="1"/>
+				<int key="++call_new+cev.Failures$Type(java.lang.String,int)" value="0"/>
+				<int key="++call_new+cev.CEV()" value="1"/>
+				<int key="++call+cev.Spacecraft.doLowActiveAbort()" value="0"/>
+				<int key="++call+cev.Failures.noEARTH_SENSORfailure()" value="0"/>
+				<int key="++return+cev.Spacecraft.doLowActiveAbort()" value="0"/>
+				<int key="++return+cev.Spacecraft.readyForTliBurn()" value="0"/>
+				<int key="++return_new+cev.Spacecraft(cev.Failures,cev.ErrorLog)" value="1"/>
+				<int key="++return+cev.Spacecraft.doLSAMrendezvous()" value="0"/>
+				<int key="++call+cev.Failures.noLAS_CNTRLfailure()" value="0"/>
+				<int key="++call_new+cev.Failures(cev.ErrorLog)" value="1"/>
+				<int key="++return_new+cev.Failures(cev.ErrorLog)" value="1"/>
+				<int key="++throw+cev.CEV.tliBurn()" value="0"/>
+				<int key="++return+cev.Failures.noLAS_CNTRLfailure()" value="0"/>
+				<int key="++return+cev.Spacecraft.readyForLSAMrendezvous()" value="0"/>
+				<int key="++call+cev.Failures$Type.values()" value="0"/>
+				<int key="++return+cev.CEV.completion()" value="0"/>
+				<int key="++call+cev.Spacecraft.doLSAMrendezvous()" value="0"/>
+				<int key="++call+cev.ErrorLog.log(java.lang.String)" value="0"/>
+				<int key="++return+cev.Failures$Type.values()" value="0"/>
+				<int key="++call+cev.CEV.lsamRendezvous()" value="0"/>
+				<int key="++return+cev.ErrorLog.last()" value="0"/>
+			</int>
+			<int key="meta_general:different_classified_total" value="34"/>
+			<int key="meta_general:different_traces" value="2">
+				<int key="++call_new+cev.CEV();++call_new+cev.ErrorLog();++return_new+cev.ErrorLog();++call_new+cev.Failures(cev.ErrorLog);++return_new+cev.Failures(cev.ErrorLog);++call_new+cev.Spacecraft(cev.Failures,cev.ErrorLog);++return_new+cev.Spacecraft(cev.Failures,cev.ErrorLog);++return_new+cev.CEV();++call+cev.CEV.completion();++call+cev.Failures.noLAS_CNTRLfailure();++return+cev.Failures.noLAS_CNTRLfailure();++call+cev.Spacecraft.doLowActiveAbort();++return+cev.Spacecraft.doLowActiveAbort();++call+cev.Failures.noEARTH_SENSORfailure();++return+cev.Failures.noEARTH_SENSORfailure();++return+cev.CEV.completion();++call+cev.CEV.lsamRendezvous();++call+cev.Spacecraft.readyForLSAMrendezvous();++return+cev.Spacecraft.readyForLSAMrendezvous();++call+cev.Spacecraft.doLSAMrendezvous();++return+cev.Spacecraft.doLSAMrendezvous();++return+cev.CEV.lsamRendezvous()" value="1"/>
+				<int key="++call_new+cev.CEV();++call_new+cev.ErrorLog();++return_new+cev.ErrorLog();++call_new+cev.Failures(cev.ErrorLog);++call_new+cev.Failures$Type(java.lang.String,int);++return_new+cev.Failures$Type(java.lang.String,int);++call_new+cev.Failures$Type(java.lang.String,int);++return_new+cev.Failures$Type(java.lang.String,int);++call_new+cev.Failures$Type(java.lang.String,int);++return_new+cev.Failures$Type(java.lang.String,int);++call_new+cev.Failures$Type(java.lang.String,int);++return_new+cev.Failures$Type(java.lang.String,int);++call+cev.Failures$Type.values();++return+cev.Failures$Type.values();++return_new+cev.Failures(cev.ErrorLog);++call_new+cev.Spacecraft(cev.Failures,cev.ErrorLog);++return_new+cev.Spacecraft(cev.Failures,cev.ErrorLog);++return_new+cev.CEV();++call+cev.CEV.tliBurn();++call+cev.Spacecraft.readyForTliBurn();++call+cev.ErrorLog.log(java.lang.String);++return+cev.ErrorLog.log(java.lang.String);++return+cev.Spacecraft.readyForTliBurn();++call+cev.ErrorLog.last();++return+cev.ErrorLog.last();++throw+cev.CEV.tliBurn()" value="1"/>
+			</int>
+			<int key="meta_general:different_classified_min" value="20"/>
+		</string>
+	</int>
+	<string key="meta_3TU:creation_institute" value="Eindhoven University of Technology"/>
+	<float key="meta_general:events_average" value="24.0"/>
+	<int key="meta_life:transition_events_total" value="48">
+		<int key="start" value="24"/>
+		<int key="complete" value="24"/>
+	</int>
+	<float key="meta_time:duration_min" value="0.012"/>
+	<int key="meta_org:group_events_max" value="26">
+		<int key="UNKNOWN" value="26"/>
+	</int>
+	<trace>
+		<string key="concept:name" value="cev.TestCEV.test_1()"/>
+		<string key="swevent:type" value="normal"/>
+		<event>
+			<string key="apploc:filename" value="CEV.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="20"/>
+			<string key="concept:name" value="cev.CEV()"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.CEV()"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.577+01:00"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="apploc:etype" value="call_new"/>
+			<string key="apprun:nanotime" value="97578828921956"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="ErrorLog.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="29"/>
+			<string key="concept:name" value="cev.ErrorLog()"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.ErrorLog()"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.580+01:00"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="apploc:etype" value="call_new"/>
+			<string key="apprun:nanotime" value="97578832073326"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="ErrorLog.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="29"/>
+			<string key="concept:name" value="cev.ErrorLog()"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.ErrorLog()"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.580+01:00"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="apploc:etype" value="return_new"/>
+			<string key="apprun:nanotime" value="97578832218728"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="Failures.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="31"/>
+			<string key="concept:name" value="cev.Failures(cev.ErrorLog)"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.Failures(cev.ErrorLog)"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.586+01:00"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="apploc:etype" value="call_new"/>
+			<string key="apprun:nanotime" value="97578838197308"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="Failures.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="24"/>
+			<string key="concept:name" value="cev.Failures$Type(java.lang.String,int)"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.Failures$Type(java.lang.String,int)"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.592+01:00"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="apploc:etype" value="call_new"/>
+			<string key="apprun:nanotime" value="97578843935975"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="Failures.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="24"/>
+			<string key="concept:name" value="cev.Failures$Type(java.lang.String,int)"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.Failures$Type(java.lang.String,int)"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.592+01:00"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="apploc:etype" value="return_new"/>
+			<string key="apprun:nanotime" value="97578844115589"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="Failures.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="24"/>
+			<string key="concept:name" value="cev.Failures$Type(java.lang.String,int)"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.Failures$Type(java.lang.String,int)"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.592+01:00"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="apploc:etype" value="call_new"/>
+			<string key="apprun:nanotime" value="97578844207534"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="Failures.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="24"/>
+			<string key="concept:name" value="cev.Failures$Type(java.lang.String,int)"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.Failures$Type(java.lang.String,int)"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.592+01:00"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="apploc:etype" value="return_new"/>
+			<string key="apprun:nanotime" value="97578844281090"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="Failures.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="24"/>
+			<string key="concept:name" value="cev.Failures$Type(java.lang.String,int)"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.Failures$Type(java.lang.String,int)"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.592+01:00"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="apploc:etype" value="call_new"/>
+			<string key="apprun:nanotime" value="97578844351225"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="Failures.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="24"/>
+			<string key="concept:name" value="cev.Failures$Type(java.lang.String,int)"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.Failures$Type(java.lang.String,int)"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.592+01:00"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="apploc:etype" value="return_new"/>
+			<string key="apprun:nanotime" value="97578844413235"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="Failures.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="24"/>
+			<string key="concept:name" value="cev.Failures$Type(java.lang.String,int)"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.Failures$Type(java.lang.String,int)"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.593+01:00"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="apploc:etype" value="call_new"/>
+			<string key="apprun:nanotime" value="97578844483797"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="Failures.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="24"/>
+			<string key="concept:name" value="cev.Failures$Type(java.lang.String,int)"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.Failures$Type(java.lang.String,int)"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.593+01:00"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="apploc:etype" value="return_new"/>
+			<string key="apprun:nanotime" value="97578844543241"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="Failures.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="1"/>
+			<string key="concept:name" value="cev.Failures$Type.values()"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.Failures$Type.values()"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.593+01:00"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="apploc:etype" value="call"/>
+			<string key="apprun:nanotime" value="97578844610383"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="Failures.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="1"/>
+			<string key="concept:name" value="cev.Failures$Type.values()"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.Failures$Type.values()"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.593+01:00"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="apploc:etype" value="return"/>
+			<string key="apprun:nanotime" value="97578844682228"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="Failures.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="31"/>
+			<string key="concept:name" value="cev.Failures(cev.ErrorLog)"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.Failures(cev.ErrorLog)"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.593+01:00"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="apploc:etype" value="return_new"/>
+			<string key="apprun:nanotime" value="97578844753218"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="Spacecraft.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="36"/>
+			<string key="concept:name" value="cev.Spacecraft(cev.Failures,cev.ErrorLog)"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.Spacecraft(cev.Failures,cev.ErrorLog)"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.612+01:00"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="apploc:etype" value="call_new"/>
+			<string key="apprun:nanotime" value="97578864222519"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="Spacecraft.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="36"/>
+			<string key="concept:name" value="cev.Spacecraft(cev.Failures,cev.ErrorLog)"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.Spacecraft(cev.Failures,cev.ErrorLog)"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.612+01:00"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="apploc:etype" value="return_new"/>
+			<string key="apprun:nanotime" value="97578864411541"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="CEV.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="20"/>
+			<string key="concept:name" value="cev.CEV()"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.CEV()"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.613+01:00"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="apploc:etype" value="return_new"/>
+			<string key="apprun:nanotime" value="97578864507335"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="CEV.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="158"/>
+			<string key="concept:name" value="cev.CEV.tliBurn()"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.CEV.tliBurn()"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.613+01:00"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="apploc:etype" value="call"/>
+			<string key="apprun:nanotime" value="97578864575332"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="Spacecraft.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="176"/>
+			<string key="concept:name" value="cev.Spacecraft.readyForTliBurn()"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.Spacecraft.readyForTliBurn()"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.613+01:00"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="apploc:etype" value="call"/>
+			<string key="apprun:nanotime" value="97578864642901"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="ErrorLog.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="37"/>
+			<string key="concept:name" value="cev.ErrorLog.log(java.lang.String)"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.ErrorLog.log(java.lang.String)"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.613+01:00"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="apploc:etype" value="call"/>
+			<string key="apprun:nanotime" value="97578864737840"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="ErrorLog.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="37"/>
+			<string key="concept:name" value="cev.ErrorLog.log(java.lang.String)"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.ErrorLog.log(java.lang.String)"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.613+01:00"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="apploc:etype" value="return"/>
+			<string key="apprun:nanotime" value="97578864812252"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="Spacecraft.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="176"/>
+			<string key="concept:name" value="cev.Spacecraft.readyForTliBurn()"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.Spacecraft.readyForTliBurn()"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.613+01:00"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="apploc:etype" value="return"/>
+			<string key="apprun:nanotime" value="97578864964923"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="ErrorLog.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="42"/>
+			<string key="concept:name" value="cev.ErrorLog.last()"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.ErrorLog.last()"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.613+01:00"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="apploc:etype" value="call"/>
+			<string key="apprun:nanotime" value="97578865076113"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="ErrorLog.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="42"/>
+			<string key="concept:name" value="cev.ErrorLog.last()"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.ErrorLog.last()"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.613+01:00"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="apploc:etype" value="return"/>
+			<string key="apprun:nanotime" value="97578865147531"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="CEV.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apprun:excatchtype" value="&lt;uncaught&gt;"/>
+			<string key="apploc:linenr" value="158"/>
+			<string key="concept:name" value="cev.CEV.tliBurn()"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apprun:exthrowtype" value="java.lang.AssertionError"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apploc:joinpoint" value="cev.CEV.tliBurn()"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.613+01:00"/>
+			<string key="apploc:etype" value="throw"/>
+			<string key="apprun:nanotime" value="97578865322441"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+	</trace>
+	<trace>
+		<string key="concept:name" value="cev.TestCEV.test_10()"/>
+		<string key="swevent:type" value="normal"/>
+		<event>
+			<string key="apploc:filename" value="CEV.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="20"/>
+			<string key="concept:name" value="cev.CEV()"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.CEV()"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.615+01:00"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="apploc:etype" value="call_new"/>
+			<string key="apprun:nanotime" value="97578867046307"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="ErrorLog.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="29"/>
+			<string key="concept:name" value="cev.ErrorLog()"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.ErrorLog()"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.615+01:00"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="apploc:etype" value="call_new"/>
+			<string key="apprun:nanotime" value="97578867140819"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="ErrorLog.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="29"/>
+			<string key="concept:name" value="cev.ErrorLog()"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.ErrorLog()"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.615+01:00"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="apploc:etype" value="return_new"/>
+			<string key="apprun:nanotime" value="97578867237468"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="Failures.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="31"/>
+			<string key="concept:name" value="cev.Failures(cev.ErrorLog)"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.Failures(cev.ErrorLog)"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.615+01:00"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="apploc:etype" value="call_new"/>
+			<string key="apprun:nanotime" value="97578867328130"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="Failures.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="31"/>
+			<string key="concept:name" value="cev.Failures(cev.ErrorLog)"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.Failures(cev.ErrorLog)"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.615+01:00"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="apploc:etype" value="return_new"/>
+			<string key="apprun:nanotime" value="97578867426063"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="Spacecraft.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="36"/>
+			<string key="concept:name" value="cev.Spacecraft(cev.Failures,cev.ErrorLog)"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.Spacecraft(cev.Failures,cev.ErrorLog)"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.616+01:00"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="apploc:etype" value="call_new"/>
+			<string key="apprun:nanotime" value="97578867522284"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="Spacecraft.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="36"/>
+			<string key="concept:name" value="cev.Spacecraft(cev.Failures,cev.ErrorLog)"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.Spacecraft(cev.Failures,cev.ErrorLog)"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.616+01:00"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="apploc:etype" value="return_new"/>
+			<string key="apprun:nanotime" value="97578868369036"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="CEV.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="20"/>
+			<string key="concept:name" value="cev.CEV()"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.CEV()"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.618+01:00"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="apploc:etype" value="return_new"/>
+			<string key="apprun:nanotime" value="97578870143366"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="CEV.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="144"/>
+			<string key="concept:name" value="cev.CEV.completion()"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.CEV.completion()"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.618+01:00"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="apploc:etype" value="call"/>
+			<string key="apprun:nanotime" value="97578870407655"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="Failures.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="49"/>
+			<string key="concept:name" value="cev.Failures.noLAS_CNTRLfailure()"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.Failures.noLAS_CNTRLfailure()"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.619+01:00"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="apploc:etype" value="call"/>
+			<string key="apprun:nanotime" value="97578870523976"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="Failures.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="49"/>
+			<string key="concept:name" value="cev.Failures.noLAS_CNTRLfailure()"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.Failures.noLAS_CNTRLfailure()"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.619+01:00"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="apploc:etype" value="return"/>
+			<string key="apprun:nanotime" value="97578870615922"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="Spacecraft.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="122"/>
+			<string key="concept:name" value="cev.Spacecraft.doLowActiveAbort()"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.Spacecraft.doLowActiveAbort()"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.619+01:00"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="apploc:etype" value="call"/>
+			<string key="apprun:nanotime" value="97578870731388"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="Spacecraft.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="122"/>
+			<string key="concept:name" value="cev.Spacecraft.doLowActiveAbort()"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.Spacecraft.doLowActiveAbort()"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.619+01:00"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="apploc:etype" value="return"/>
+			<string key="apprun:nanotime" value="97578870854979"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="Failures.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="53"/>
+			<string key="concept:name" value="cev.Failures.noEARTH_SENSORfailure()"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.Failures.noEARTH_SENSORfailure()"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.619+01:00"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="apploc:etype" value="call"/>
+			<string key="apprun:nanotime" value="97578870961037"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="Failures.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="53"/>
+			<string key="concept:name" value="cev.Failures.noEARTH_SENSORfailure()"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.Failures.noEARTH_SENSORfailure()"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.619+01:00"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="apploc:etype" value="return"/>
+			<string key="apprun:nanotime" value="97578871066239"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="CEV.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="144"/>
+			<string key="concept:name" value="cev.CEV.completion()"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.CEV.completion()"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.619+01:00"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="apploc:etype" value="return"/>
+			<string key="apprun:nanotime" value="97578871169304"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="CEV.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="153"/>
+			<string key="concept:name" value="cev.CEV.lsamRendezvous()"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.CEV.lsamRendezvous()"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.619+01:00"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="apploc:etype" value="call"/>
+			<string key="apprun:nanotime" value="97578871280066"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="Spacecraft.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="150"/>
+			<string key="concept:name" value="cev.Spacecraft.readyForLSAMrendezvous()"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.Spacecraft.readyForLSAMrendezvous()"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.619+01:00"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="apploc:etype" value="call"/>
+			<string key="apprun:nanotime" value="97578871385268"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="Spacecraft.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="150"/>
+			<string key="concept:name" value="cev.Spacecraft.readyForLSAMrendezvous()"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.Spacecraft.readyForLSAMrendezvous()"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.619+01:00"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="apploc:etype" value="return"/>
+			<string key="apprun:nanotime" value="97578871485339"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="Spacecraft.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="75"/>
+			<string key="concept:name" value="cev.Spacecraft.doLSAMrendezvous()"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.Spacecraft.doLSAMrendezvous()"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.620+01:00"/>
+			<string key="lifecycle:transition" value="start"/>
+			<string key="apploc:etype" value="call"/>
+			<string key="apprun:nanotime" value="97578872370579"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="Spacecraft.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="75"/>
+			<string key="concept:name" value="cev.Spacecraft.doLSAMrendezvous()"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.Spacecraft.doLSAMrendezvous()"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.624+01:00"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="apploc:etype" value="return"/>
+			<string key="apprun:nanotime" value="97578875861077"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+		<event>
+			<string key="apploc:filename" value="CEV.java"/>
+			<string key="org:resource" value="1"/>
+			<string key="apploc:node" value="0.1-SNAPSHOT"/>
+			<string key="apploc:linenr" value="153"/>
+			<string key="concept:name" value="cev.CEV.lsamRendezvous()"/>
+			<string key="apploc:tier" value="symdym-examples"/>
+			<string key="apploc:app" value="symdym"/>
+			<string key="apprun:threadid" value="1"/>
+			<string key="apploc:joinpoint" value="cev.CEV.lsamRendezvous()"/>
+			<date key="time:timestamp" value="2017-02-10T13:55:00.627+01:00"/>
+			<string key="lifecycle:transition" value="complete"/>
+			<string key="apploc:etype" value="return"/>
+			<string key="apprun:nanotime" value="97578878823425"/>
+			<string key="apploc:regionstr" value=""/>
+		</event>
+	</trace>
+</log>
